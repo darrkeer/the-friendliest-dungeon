@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Potion" format=3 uid="uid://ctnnkc82wkd43"]
+
+[ext_resource type="Script" uid="uid://c0ujknaggfxk5" path="res://assets/scripts/item/potion.gd" id="1_8cxqw"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="1_viuf0"]
+[ext_resource type="Script" uid="uid://ckelshux0bksg" path="res://assets/scripts/effects/jump_boost_effect.gd" id="1_w66d8"]
+[ext_resource type="PackedScene" uid="uid://b8xs011sco06a" path="res://assets/scenes/items/leap_potion.tscn" id="2_w66d8"]
+[ext_resource type="Texture2D" uid="uid://blayacr72gcxc" path="res://assets/sprites/items/green-potion-render.png" id="4_jokwk"]
+
+[sub_resource type="Resource" id="Resource_jokwk"]
+script = ExtResource("1_w66d8")
+multiplier = 2.0
+duration = 30.0
+metadata/_custom_type_script = "uid://ckelshux0bksg"
+
+[sub_resource type="Resource" id="Resource_viuf0"]
+script = ExtResource("1_viuf0")
+hint_name = "Leap Potion"
+hint_text = "Press {interact} to drink it"
+hint_additional_text = "???"
+show_time = 20.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[resource]
+script = ExtResource("1_8cxqw")
+effect = SubResource("Resource_jokwk")
+duration = 30.0
+item_name = "leap_potion"
+scene = ExtResource("2_w66d8")
+sprite = ExtResource("4_jokwk")
+hint = SubResource("Resource_viuf0")
+hover_sound_name = "bottle"
+metadata/_custom_type_script = "uid://c0ujknaggfxk5"

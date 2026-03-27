@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://c6g4j787qscu2"]
+
+[ext_resource type="Script" uid="uid://mid177vicmuk" path="res://assets/scripts/player/player.gd" id="1_o5c66"]
+[ext_resource type="PackedScene" uid="uid://ceg3ov4hsfxao" path="res://assets/models/wizard.glb" id="1_rwm0n"]
+[ext_resource type="PackedScene" uid="uid://ctibrrnpxl4nq" path="res://assets/models/barell.glb" id="3_1dmvh"]
+[ext_resource type="PackedScene" uid="uid://dwneaxg32sbuf" path="res://assets/scenes/state_machine.tscn" id="4_8sknh"]
+[ext_resource type="Script" uid="uid://di0kw2r4pun8l" path="res://assets/scripts/player/player_idle.gd" id="5_0gfpk"]
+[ext_resource type="Script" uid="uid://br4l5wq3ri75d" path="res://assets/scripts/player/player_run.gd" id="5_0hrit"]
+[ext_resource type="Script" uid="uid://pkn6k6n8vhtm" path="res://assets/scripts/player/player_jump.gd" id="6_0hrit"]
+[ext_resource type="Script" uid="uid://bsd7obphp7o7l" path="res://assets/scripts/player/player_fall.gd" id="7_o5c66"]
+[ext_resource type="Script" uid="uid://swkei1c5twll" path="res://assets/scripts/player/spring_arm_camera.gd" id="9_60g6h"]
+[ext_resource type="Script" uid="uid://d0ur1oib3xk3v" path="res://assets/scripts/player/player_hit.gd" id="9_hrrj1"]
+[ext_resource type="Script" uid="uid://dftbmo3rqu672" path="res://assets/scripts/player/player_sneak.gd" id="9_tc801"]
+[ext_resource type="Script" uid="uid://c3eh116ow88oe" path="res://assets/scripts/player/player_death.gd" id="10_hrrj1"]
+[ext_resource type="Script" uid="uid://bm38vjb5ua20o" path="res://assets/scripts/player/player_throw.gd" id="11_00pic"]
+[ext_resource type="Script" uid="uid://csmwyx23ndkp2" path="res://assets/scripts/player/inventory.gd" id="12_c6vv5"]
+[ext_resource type="Script" uid="uid://4lkh6if2d3rl" path="res://assets/scripts/player/player_barrel_idle.gd" id="13_cd4ww"]
+[ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="13_nh07x"]
+[ext_resource type="Script" uid="uid://dr6eoiav6fnl1" path="res://assets/scripts/player/player_barrel_run.gd" id="14_84enu"]
+[ext_resource type="PackedScene" uid="uid://bvmtx3og6el08" path="res://assets/scenes/interactable/barrel.tscn" id="14_rqyl7"]
+[ext_resource type="Resource" uid="uid://c7jd5lea31xoj" path="res://assets/resources/items/chips.tres" id="15_0bskb"]
+[ext_resource type="Script" uid="uid://cksookb8crsiw" path="res://assets/scripts/player/player_barrel_fall.gd" id="15_cd4ww"]
+[ext_resource type="Resource" uid="uid://bc8yaxevncxjk" path="res://assets/resources/hints/barrel_hint.tres" id="15_wf17w"]
+[ext_resource type="Resource" uid="uid://b4o6x44aque61" path="res://assets/resources/items/coin.tres" id="22_0e2pd"]
+[ext_resource type="Resource" uid="uid://cnimriy4l7gla" path="res://assets/resources/items/key.tres" id="23_ay2jx"]
+[ext_resource type="Resource" uid="uid://ctnnkc82wkd43" path="res://assets/resources/items/leap_potion.tres" id="24_jukhh"]
+[ext_resource type="Resource" uid="uid://yhywigpgdp2k" path="res://assets/resources/items/quiet_potion.tres" id="25_gdn7j"]
+[ext_resource type="Resource" uid="uid://dnldojqxksrt" path="res://assets/resources/items/speed_potion.tres" id="26_6luef"]
+[ext_resource type="Resource" uid="uid://py4hvf83px5p" path="res://assets/resources/items/empty_bottle.tres" id="27_ay2jx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s027a"]
+height = 2.5
+
+[sub_resource type="Animation" id="Animation_ratp2"]
+resource_name = "barrel_idle"
+length = 0.6333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.7252903e-08, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_84enu"]
+resource_name = "barrel_run"
+length = 2.0000033
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.76666665, 1, 1.2666667, 1.5000001, 1.7666667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7, 0), Vector3(0, 0.76, 0), Vector3(0, 0.8, 0), Vector3(0, 0.74666667, 0), Vector3(0, 0.7, 0), Vector3(0, 0.75333333, 0), Vector3(0, 0.8, 0), Vector3(0, 0.74666667, 0), Vector3(0, 0.7, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cd4ww"]
+_data = {
+&"barrel_idle": SubResource("Animation_ratp2"),
+&"barrel_run": SubResource("Animation_84enu")
+}
+
+[node name="Player" type="Node3D" unique_id=1904397807]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1076715000 node_paths=PackedStringArray("camera", "state_machine", "inventory") groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_o5c66")
+camera = NodePath("../CameraPivot/SpringArm3D/Camera3D")
+state_machine = NodePath("../StateMachine")
+inventory = NodePath("../Inventory")
+
+[node name="wizard" parent="Player" unique_id=983046130 instance=ExtResource("1_rwm0n")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Player/wizard/Armature" parent_id_path=PackedInt32Array(983046130, 439955486) index="0" unique_id=408156494]
+bones/0/position = Vector3(-7.115204e-15, -0.8316291, -0.088057235)
+bones/0/rotation = Quaternion(-0.19234285, 1.169834e-07, -2.2929061e-08, 0.9813278)
+bones/0/scale = Vector3(1, 0.78812057, 0.968006)
+bones/1/rotation = Quaternion(-0.1203241, -1.26565425e-14, -2.868751e-08, 0.99273473)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(0.2032396, 1.7319477e-14, 4.8456112e-08, 0.9791291)
+bones/3/rotation = Quaternion(0.30944672, 1.4654944e-14, 7.377785e-08, 0.95091677)
+bones/4/rotation = Quaternion(0.19144513, 1.1700438e-07, 6.846613e-08, 0.98150337)
+bones/5/rotation = Quaternion(0.5055514, -1.02853456e-07, 1.807993e-07, 0.8627966)
+bones/6/rotation = Quaternion(0.102741584, 1.9539925e-14, 2.4495495e-08, 0.9947081)
+bones/7/rotation = Quaternion(0.77867496, -0.16994144, 0.14967854, -0.5851338)
+bones/8/rotation = Quaternion(-0.121226564, 0.0011223439, -0.055576816, 0.9910672)
+bones/9/rotation = Quaternion(0.9738987, 0.049443156, -0.2209958, -0.015410043)
+bones/10/rotation = Quaternion(-0.45419818, -0.035944883, 0.21146901, 0.8646923)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1543712057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CapsuleShape3D_s027a")
+
+[node name="barell" parent="Player" unique_id=619213102 instance=ExtResource("3_1dmvh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -3.7252903e-08, 0)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/barell" unique_id=1801011866]
+libraries/ = SubResource("AnimationLibrary_cd4ww")
+autoplay = &"barrel_idle"
+
+[node name="StateMachine" parent="." unique_id=372079757 instance=ExtResource("4_8sknh")]
+initial_state = "fall"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1043925222 node_paths=PackedStringArray("player", "animation_player")]
+script = ExtResource("5_0gfpk")
+player = NodePath("../../Player")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "idle"
+state_name = "idle"
+
+[node name="Run" type="Node" parent="StateMachine" unique_id=1286445641 node_paths=PackedStringArray("sound_timer", "player", "animation_player")]
+script = ExtResource("5_0hrit")
+sound_timer = NodePath("Timer")
+player = NodePath("../../Player")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "run"
+state_name = "run"
+is_loud = true
+
+[node name="Timer" type="Timer" parent="StateMachine/Run" unique_id=370538294]
+wait_time = 0.45
+autostart = true
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=153843715 node_paths=PackedStringArray("player", "fall_start_timer", "jump_start_timer", "animation_player")]
+script = ExtResource("6_0hrit")
+player = NodePath("../../Player")
+fall_start_timer = NodePath("FallStartTimer")
+jump_start_timer = NodePath("JumpStartTimer")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "jump"
+state_name = "jump"
+is_loud = true
+
+[node name="FallStartTimer" type="Timer" parent="StateMachine/Jump" unique_id=699950105]
+wait_time = 1.1
+one_shot = true
+
+[node name="JumpStartTimer" type="Timer" parent="StateMachine/Jump" unique_id=1500990926]
+wait_time = 0.3
+one_shot = true
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=1813572452 node_paths=PackedStringArray("player", "start_fall_timer", "animation_player")]
+script = ExtResource("7_o5c66")
+player = NodePath("../../Player")
+start_fall_timer = NodePath("Timer")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "fall"
+state_name = "fall"
+is_loud = true
+
+[node name="Timer" type="Timer" parent="StateMachine/Fall" unique_id=2138140530]
+wait_time = 0.1
+one_shot = true
+
+[node name="Sneak" type="Node" parent="StateMachine" unique_id=1689051061 node_paths=PackedStringArray("player", "sound_timer", "animation_player")]
+script = ExtResource("9_tc801")
+player = NodePath("../../Player")
+sound_timer = NodePath("Timer")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "sneak"
+state_name = "sneak"
+
+[node name="Timer" type="Timer" parent="StateMachine/Sneak" unique_id=717053947]
+wait_time = 0.9
+autostart = true
+
+[node name="Hit" type="Node" parent="StateMachine" unique_id=1310387575 node_paths=PackedStringArray("player", "end_timer", "animation_player")]
+script = ExtResource("9_hrrj1")
+player = NodePath("../../Player")
+end_timer = NodePath("Timer")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "idle"
+state_name = "hit"
+is_loud = true
+
+[node name="Timer" type="Timer" parent="StateMachine/Hit" unique_id=1342745918]
+one_shot = true
+
+[node name="Death" type="Node" parent="StateMachine" unique_id=1114675854 node_paths=PackedStringArray("player", "animation_player")]
+script = ExtResource("10_hrrj1")
+player = NodePath("../../Player")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "death"
+state_name = "death"
+
+[node name="Throw" type="Node" parent="StateMachine" unique_id=685891815]
+script = ExtResource("11_00pic")
+state_name = "throw"
+is_loud = true
+
+[node name="BarrelIdle" type="Node" parent="StateMachine" unique_id=963422863 node_paths=PackedStringArray("player", "barrel", "animation_player")]
+script = ExtResource("13_cd4ww")
+player = NodePath("../../Player")
+barrel = NodePath("../../Player/barell")
+barrel_scene = ExtResource("14_rqyl7")
+hint = ExtResource("15_wf17w")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "barrel_idle"
+state_name = "barrel_idle"
+is_sneaky = true
+
+[node name="BarrelRun" type="Node" parent="StateMachine" unique_id=1138626504 node_paths=PackedStringArray("barrel_animation_player", "sound_timer", "player", "barrel", "animation_player")]
+script = ExtResource("14_84enu")
+barrel_animation_player = NodePath("../../Player/barell/AnimationPlayer")
+sound_timer = NodePath("Timer")
+player = NodePath("../../Player")
+barrel = NodePath("../../Player/barell")
+barrel_scene = ExtResource("14_rqyl7")
+hint = ExtResource("15_wf17w")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "barrel_run"
+state_name = "barrel_run"
+
+[node name="Timer" type="Timer" parent="StateMachine/BarrelRun" unique_id=638015518]
+wait_time = 0.9
+autostart = true
+
+[node name="BarrelFall" type="Node" parent="StateMachine" unique_id=106992679 node_paths=PackedStringArray("player", "barrel", "animation_player")]
+script = ExtResource("15_cd4ww")
+player = NodePath("../../Player")
+barrel = NodePath("../../Player/barell")
+barrel_scene = ExtResource("14_rqyl7")
+hint = ExtResource("15_wf17w")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "barrel_idle"
+state_name = "barrel_fall"
+is_loud = true
+is_sneaky = true
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=386357582 node_paths=PackedStringArray("player", "arm")]
+script = ExtResource("9_60g6h")
+player = NodePath("../Player")
+arm = NodePath("SpringArm3D")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=1430443769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=305579462]
+current = true
+
+[node name="Inventory" type="Node" parent="." unique_id=662349010]
+script = ExtResource("12_c6vv5")
+all_items = Array[ExtResource("13_nh07x")]([ExtResource("15_0bskb"), ExtResource("22_0e2pd"), ExtResource("23_ay2jx"), ExtResource("24_jukhh"), ExtResource("25_gdn7j"), ExtResource("26_6luef"), ExtResource("27_ay2jx")])
+items = Array[ExtResource("13_nh07x")]([null, null, null, null])
+
+[editable path="Player/wizard"]

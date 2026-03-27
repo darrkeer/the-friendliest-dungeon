@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dbi2djbkmc4tt"]
+
+[ext_resource type="Texture2D" uid="uid://xs8t4qu2wh7v" path="res://assets/sprites/textures/dirt.png" id="1_jy2vk"]
+
+[resource]
+shading_mode = 2
+albedo_texture = ExtResource("1_jy2vk")
+uv1_triplanar = true
+texture_filter = 0

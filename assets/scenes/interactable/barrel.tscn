@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bvmtx3og6el08"]
+
+[ext_resource type="PackedScene" uid="uid://ctibrrnpxl4nq" path="res://assets/models/barell.glb" id="1_uo7xr"]
+[ext_resource type="PackedScene" uid="uid://dwneaxg32sbuf" path="res://assets/scenes/state_machine.tscn" id="2_w584t"]
+[ext_resource type="PackedScene" uid="uid://bmdtm6gpr5oa7" path="res://assets/scenes/interactable.tscn" id="3_cvh64"]
+[ext_resource type="Script" uid="uid://bqu08lo3akjdk" path="res://assets/scripts/interactable/barrel_idle.gd" id="3_w584t"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="4_mi4nw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_blhja"]
+height = 1.79375
+radius = 0.7
+
+[sub_resource type="Resource" id="Resource_vo4pg"]
+script = ExtResource("4_mi4nw")
+hint_text = "press {interact} to hide"
+show_time = 3.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w584t"]
+radius = 2.0
+
+[node name="Barrel" type="RigidBody3D" unique_id=308034336]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="barell" parent="." unique_id=619213102 instance=ExtResource("1_uo7xr")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=775177445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8718749, 0)
+shape = SubResource("CylinderShape3D_blhja")
+
+[node name="StateMachine" parent="." unique_id=372079757 instance=ExtResource("2_w584t")]
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1618461303 node_paths=PackedStringArray("interactable", "barrel_node")]
+script = ExtResource("3_w584t")
+interactable = NodePath("../../Interactable")
+barrel_node = NodePath("../..")
+state_name = "idle"
+
+[node name="Interactable" parent="." unique_id=510802579 instance=ExtResource("3_cvh64")]
+hint = SubResource("Resource_vo4pg")
+
+[node name="CollisionShape3D" parent="Interactable" index="0" unique_id=86648199]
+shape = SubResource("SphereShape3D_w584t")
+
+[editable path="Interactable"]

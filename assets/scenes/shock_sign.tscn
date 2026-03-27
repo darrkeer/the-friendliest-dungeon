@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b4s2jwxnkbbbc"]
+
+[ext_resource type="Texture2D" uid="uid://byetsp7hu0j3m" path="res://assets/sprites/shock-question1.png" id="1_v6xup"]
+[ext_resource type="Texture2D" uid="uid://cgfxjxlix7dnq" path="res://assets/sprites/shock-exclamation.png" id="2_mxcmk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34va3"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_v6xup")
+texture_filter = 0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_vqa6s"]
+material = SubResource("StandardMaterial3D_34va3")
+
+[sub_resource type="Gradient" id="Gradient_v6xup"]
+offsets = PackedFloat32Array(0.7058824, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7vc4"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_mxcmk")
+texture_filter = 0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_ex2jp"]
+material = SubResource("StandardMaterial3D_c7vc4")
+
+[sub_resource type="Gradient" id="Gradient_mxcmk"]
+offsets = PackedFloat32Array(0.64705884, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="ShockSign" type="Node3D" unique_id=1374884266]
+
+[node name="Question" type="CPUParticles3D" parent="." unique_id=980958742]
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+fixed_fps = 10
+mesh = SubResource("QuadMesh_vqa6s")
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+color_ramp = SubResource("Gradient_v6xup")
+
+[node name="Exclamation" type="CPUParticles3D" parent="." unique_id=470587062]
+emitting = false
+amount = 1
+lifetime = 1.2
+one_shot = true
+fixed_fps = 10
+mesh = SubResource("QuadMesh_ex2jp")
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+color_ramp = SubResource("Gradient_mxcmk")

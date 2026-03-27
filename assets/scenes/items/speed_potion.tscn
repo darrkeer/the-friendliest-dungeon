@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://1gju7liy6yj4"]
+
+[ext_resource type="PackedScene" uid="uid://dfrq04ngdlv4b" path="res://assets/scenes/base_item.tscn" id="1_4huei"]
+[ext_resource type="PackedScene" uid="uid://bqqgpqntp85nd" path="res://assets/models/red_potion.glb" id="2_rvo5c"]
+
+[node name="SpeedPotion" unique_id=526094752 instance=ExtResource("1_4huei")]
+item_name = "speed_potion"
+
+[node name="red_potion" parent="HolderHolder/Holder" parent_id_path=PackedInt32Array(1025611576) index="0" unique_id=622207096 instance=ExtResource("2_rvo5c")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

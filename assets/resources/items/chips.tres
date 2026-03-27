@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://c7jd5lea31xoj"]
+
+[ext_resource type="PackedScene" uid="uid://dgl8e7hrppcvj" path="res://assets/scenes/items/chips.tscn" id="1_876mr"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="1_av6t5"]
+[ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="1_ek7ga"]
+[ext_resource type="Texture2D" uid="uid://cwd6y7xslvv2g" path="res://assets/sprites/items/chips-render.png" id="3_876mr"]
+
+[sub_resource type="Resource" id="Resource_rtejs"]
+script = ExtResource("1_av6t5")
+hint_name = "Skeleton Chips"
+hint_text = "Press {throw} button to drop it"
+hint_additional_text = "Perhaps you can be friends with skelly?"
+show_time = 20.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[resource]
+script = ExtResource("1_ek7ga")
+item_name = "chips"
+scene = ExtResource("1_876mr")
+sprite = ExtResource("3_876mr")
+hint = SubResource("Resource_rtejs")
+hover_sound_name = "chips_hover"
+metadata/_custom_type_script = "uid://hymcpei7u2gf"

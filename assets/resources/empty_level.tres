@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://ctmyxahganfx"]
+
+[ext_resource type="PackedScene" uid="uid://bwvwk0ebuuyrd" path="res://assets/scenes/levels/empty_level.tscn" id="1_44qiv"]
+[ext_resource type="Script" uid="uid://cgh4kwy6ycxus" path="res://assets/scripts/level_resource.gd" id="1_bbwsd"]
+
+[resource]
+script = ExtResource("1_bbwsd")
+level_name = "empty"
+scene = ExtResource("1_44qiv")
+metadata/_custom_type_script = "uid://cgh4kwy6ycxus"

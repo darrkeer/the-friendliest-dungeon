@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dnciyitviuahf"]
+
+[ext_resource type="PackedScene" uid="uid://bmdtm6gpr5oa7" path="res://assets/scenes/interactable.tscn" id="1_epmvr"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="2_rmm8v"]
+[ext_resource type="PackedScene" uid="uid://ug774w7rnj4x" path="res://assets/models/door.glb" id="3_hyxeh"]
+[ext_resource type="PackedScene" uid="uid://dwneaxg32sbuf" path="res://assets/scenes/state_machine.tscn" id="4_a7thd"]
+[ext_resource type="Script" uid="uid://4oj1s70vdkyf" path="res://assets/scripts/interactable/door_open.gd" id="5_rmm8v"]
+[ext_resource type="Script" uid="uid://b76kutxo0cnc3" path="res://assets/scripts/interactable/door_close.gd" id="6_a7thd"]
+[ext_resource type="Script" uid="uid://dut5ofqtybi4y" path="res://assets/scripts/interactable/door_closed.gd" id="7_a7thd"]
+[ext_resource type="Script" uid="uid://cg135lavs1my" path="res://assets/scripts/interactable/door_opened.gd" id="7_hyxeh"]
+
+[sub_resource type="Resource" id="Resource_hpbyn"]
+script = ExtResource("2_rmm8v")
+hint_text = "press {interact} to open"
+show_time = 3.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e7muw"]
+size = Vector3(0.4, 5.3, 3.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nd1pp"]
+size = Vector3(0.8, 6.1, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p3ch2"]
+size = Vector3(0.8, 6.1, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btt1x"]
+size = Vector3(0.8, 0.7, 4.3)
+
+[node name="Door" type="Node3D" unique_id=694974554]
+
+[node name="Interactable" parent="." unique_id=510802579 instance=ExtResource("1_epmvr")]
+hint = SubResource("Resource_hpbyn")
+
+[node name="CollisionShape3D" parent="Interactable" index="0" unique_id=86648199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="door" parent="." unique_id=1883286404 instance=ExtResource("3_hyxeh")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="Cube" parent="door" index="0" unique_id=821991973]
+transform = Transform3D(-0.46259755, 0, -0.88656837, 0, 1, 0, 0.88656837, 0, -0.46259755, 0, 2.1146789, 1.6764815)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door/Cube" index="0" unique_id=8076608]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/Cube/StaticBody3D" unique_id=780772809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4901161e-08, 0.035321236, -1.6264814)
+shape = SubResource("BoxShape3D_e7muw")
+
+[node name="Cube_001" parent="door" index="1" unique_id=1379013733]
+transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door/Cube_001" index="0" unique_id=1544551527]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/Cube_001/StaticBody3D" unique_id=1030106604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2957406e-05, 2.4499998, 1.9999999)
+shape = SubResource("BoxShape3D_nd1pp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="door/Cube_001/StaticBody3D" unique_id=2018611894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 2.4499998, -1.65)
+shape = SubResource("BoxShape3D_p3ch2")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="door/Cube_001/StaticBody3D" unique_id=1056008247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 5.15, 0.14999992)
+shape = SubResource("BoxShape3D_btt1x")
+
+[node name="AnimationPlayer" parent="door" index="2" unique_id=389805172]
+autoplay = &"closed"
+
+[node name="StateMachine" parent="." unique_id=372079757 instance=ExtResource("4_a7thd")]
+initial_state = "closed"
+
+[node name="Open" type="Node" parent="StateMachine" unique_id=1890232924 node_paths=PackedStringArray("door", "animation_player")]
+script = ExtResource("5_rmm8v")
+door = NodePath("../..")
+animation_player = NodePath("../../door/AnimationPlayer")
+animation_name = "open"
+state_name = "open"
+
+[node name="Close" type="Node" parent="StateMachine" unique_id=1760753580 node_paths=PackedStringArray("door", "animation_player")]
+script = ExtResource("6_a7thd")
+door = NodePath("../..")
+animation_player = NodePath("../../door/AnimationPlayer")
+animation_name = "close"
+state_name = "close"
+
+[node name="Opened" type="Node" parent="StateMachine" unique_id=541434317 node_paths=PackedStringArray("interactable", "animation_player")]
+script = ExtResource("7_hyxeh")
+interactable = NodePath("../../Interactable")
+animation_player = NodePath("../../door/AnimationPlayer")
+animation_name = "opened"
+state_name = "opened"
+
+[node name="Closed" type="Node" parent="StateMachine" unique_id=336550147 node_paths=PackedStringArray("interactable", "animation_player")]
+script = ExtResource("7_a7thd")
+interactable = NodePath("../../Interactable")
+animation_player = NodePath("../../door/AnimationPlayer")
+animation_name = "closed"
+state_name = "closed"
+
+[editable path="Interactable"]
+[editable path="door"]

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c5wk0pgr44pyo"]
+
+[node name="WalkNode" type="Node3D" unique_id=1231401299]
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1161205063]

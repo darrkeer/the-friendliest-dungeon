@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://clw4wx62nvxf8"]
+
+[ext_resource type="PackedScene" uid="uid://ceg3ov4hsfxao" path="res://assets/models/wizard.glb" id="1_a6du6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s1xgc"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_u05g1"]
+sky_material = SubResource("ProceduralSkyMaterial_s1xgc")
+
+[sub_resource type="Environment" id="Environment_np4up"]
+background_color = Color(0.7399763, 0.8454029, 0.9433488, 1)
+sky = SubResource("Sky_u05g1")
+ambient_light_source = 2
+ambient_light_color = Color(0.7399763, 0.8454029, 0.9433488, 1)
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.7803347, 0.6354187, 0.9555095, 1)
+fog_light_energy = 0.82
+fog_density = 0.002
+fog_height = -1.0
+fog_height_density = 0.7
+
+[sub_resource type="Gradient" id="Gradient_s1xgc"]
+colors = PackedColorArray(0.5647059, 0.5803922, 0.5058824, 1, 0.59607846, 0.70980394, 0.69411767, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u05g1"]
+gradient = SubResource("Gradient_s1xgc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_np4up"]
+albedo_color = Color(0.56538516, 0.3219871, 0.31559992, 1)
+albedo_texture = SubResource("GradientTexture1D_u05g1")
+metallic_specular = 0.42
+
+[node name="AnimationTest" type="Node3D" unique_id=719019018]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1007414060]
+environment = SubResource("Environment_np4up")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=496168145]
+transform = Transform3D(-0.91040903, 0.07313345, -0.40719405, 0.030824028, 0.9935065, 0.10952049, 0.41255957, 0.08715708, -0.9067515, -0.9303992, 3.4803543, -12.653944)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1838640925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+material_override = SubResource("StandardMaterial3D_np4up")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1677658896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -11, 3)
+size = Vector3(3, 38, 3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D2" unique_id=232923300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -2, -4)
+size = Vector3(3, 38, 3)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1895948770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -8.5, -5)
+size = Vector3(3, 26, 3)
+
+[node name="wizard2" parent="." unique_id=2062283702 instance=ExtResource("1_a6du6")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1, 3.1, 3)
+
+[node name="AnimationPlayer" parent="wizard2" index="1" unique_id=549009900]
+autoplay = &"jump"
+
+[node name="wizard3" parent="." unique_id=1588761490 instance=ExtResource("1_a6du6")]
+transform = Transform3D(0.86602634, 0, -0.5000006, 0, 1, 0, 0.5000006, 0, 0.86602634, 10.003691, 0.99999994, -0.60608006)
+
+[node name="AnimationPlayer" parent="wizard3" index="1" unique_id=549009900]
+autoplay = &"run"
+
+[node name="wizard" parent="." unique_id=1305381402 instance=ExtResource("1_a6du6")]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 3, -0.50000006, -5)
+
+[node name="Skeleton3D" parent="wizard/Armature" parent_id_path=PackedInt32Array(1305381402, 1100547517) index="0" unique_id=2001686330]
+bones/0/position = Vector3(4.343129e-16, 0.09607655, -0.08805716)
+bones/0/rotation = Quaternion(0.11915651, 1.1836001e-07, 1.4204565e-08, 0.99287546)
+bones/1/rotation = Quaternion(-0.19060557, -2.1199071e-14, -4.5443915e-08, 0.98166674)
+bones/2/rotation = Quaternion(0.112769276, -2.0173939e-16, 2.6886298e-08, 0.99362123)
+bones/4/rotation = Quaternion(0.19703473, 1.16872435e-07, 7.046512e-08, 0.98039657)
+bones/5/rotation = Quaternion(0.23058459, -1.1599699e-07, 8.246349e-08, 0.9730524)
+bones/6/rotation = Quaternion(0.21210255, 2.7470842e-14, 5.0569174e-08, 0.9772474)
+bones/7/rotation = Quaternion(0.97214484, -0.032096393, 0.224173, 0.06042098)
+bones/8/rotation = Quaternion(-0.110476024, 2.6623666e-05, -0.050546236, 0.99259263)
+bones/9/rotation = Quaternion(0.97214484, 0.03209638, -0.22417301, 0.060420986)
+bones/10/rotation = Quaternion(-0.1104759, -2.6628386e-05, 0.050546195, 0.99259263)
+
+[node name="AnimationPlayer" parent="wizard" index="1" unique_id=549009900]
+autoplay = &"idle"
+
+[editable path="wizard2"]
+[editable path="wizard3"]
+[editable path="wizard"]

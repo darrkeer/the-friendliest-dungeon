@@ -1,0 +1,21 @@
+[gd_resource type="Theme" format=3 uid="uid://c7i7advk8bb72"]
+
+[ext_resource type="FontFile" uid="uid://jrl67ela7vn7" path="res://assets/misc/fonts/The Chaosland.ttf" id="1_q355o"]
+[ext_resource type="StyleBox" uid="uid://cwq6iml6s5vv5" path="res://assets/misc/hover_button_style_box.tres" id="2_3rahu"]
+[ext_resource type="StyleBox" uid="uid://brma1m4rqppsg" path="res://assets/misc/panel_style_box.tres" id="2_7ic3i"]
+[ext_resource type="StyleBox" uid="uid://cbrkt4teag1uf" path="res://assets/misc/normal_button_style_box.tres" id="3_iqgoh"]
+[ext_resource type="StyleBox" uid="uid://bq8veue1ty2kw" path="res://assets/misc/pressed_button_style_box.tres" id="4_1swi4"]
+
+[resource]
+Button/colors/font_color = Color(0.72795504, 0.7340635, 0.73927784, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_q355o")
+Button/styles/hover = ExtResource("2_3rahu")
+Button/styles/hover_pressed = ExtResource("2_3rahu")
+Button/styles/normal = ExtResource("3_iqgoh")
+Button/styles/pressed = ExtResource("4_1swi4")
+HSlider/constants/center_grabber = 0
+MarginContainer/constants/margin_left = 15
+MarginContainer/constants/margin_right = 10
+PanelContainer/styles/panel = ExtResource("2_7ic3i")

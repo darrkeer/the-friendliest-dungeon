@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dwneaxg32sbuf"]
+
+[ext_resource type="Script" uid="uid://c837d82c081yd" path="res://assets/scripts/states/state_machine.gd" id="1_oqbvs"]
+
+[node name="StateMachine" type="Node" unique_id=372079757]
+script = ExtResource("1_oqbvs")
+initial_state = "idle"

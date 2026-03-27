@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d2hh648mwua70"]
+
+[ext_resource type="PackedScene" uid="uid://bv5huj6aqhsgw" path="res://assets/scenes/interactable/exchanger_base.tscn" id="1_4opk2"]
+[ext_resource type="Resource" uid="uid://b4o6x44aque61" path="res://assets/resources/items/coin.tres" id="2_11oaq"]
+[ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="3_avf56"]
+[ext_resource type="Resource" uid="uid://c7jd5lea31xoj" path="res://assets/resources/items/chips.tres" id="4_1klem"]
+[ext_resource type="PackedScene" uid="uid://dm6bh8nej6tcr" path="res://assets/models/vendmachine.blend" id="5_5r2bs"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="6_4opk2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v6vie"]
+size = Vector3(1, 3, 2.2)
+
+[sub_resource type="Resource" id="Resource_11oaq"]
+script = ExtResource("6_4opk2")
+hint_name = "Vending Machine"
+hint_text = "press {interact} to buy food"
+hint_additional_text = "money?"
+show_time = 10.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[node name="VendingMachine" unique_id=132471920 instance=ExtResource("1_4opk2")]
+exchange_item = ExtResource("2_11oaq")
+items = Array[ExtResource("3_avf56")]([ExtResource("4_1klem")])
+exchange_sound_name = "vendmachine"
+
+[node name="vendmachine" parent="." index="0" unique_id=2093157155 instance=ExtResource("5_5r2bs")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=568103354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.1920929e-07)
+shape = SubResource("BoxShape3D_v6vie")
+
+[node name="Interactable" parent="." index="2" unique_id=510802579]
+hint = SubResource("Resource_11oaq")
+
+[node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(372079757) index="0" unique_id=1763834485 node_paths=PackedStringArray("animation_player")]
+animation_player = NodePath("../../vendmachine/AnimationPlayer")
+animation_name = "idle"
+
+[node name="Exchange" parent="StateMachine" parent_id_path=PackedInt32Array(372079757) index="1" unique_id=1662187298 node_paths=PackedStringArray("animation_player")]
+animation_player = NodePath("../../vendmachine/AnimationPlayer")
+animation_name = "buy"
+
+[node name="NotEnough" parent="StateMachine" parent_id_path=PackedInt32Array(372079757) index="2" unique_id=557051637 node_paths=PackedStringArray("animation_player")]
+animation_player = NodePath("../../vendmachine/AnimationPlayer")
+animation_name = "idle"
+
+[node name="SpawnPoint" parent="." index="4" unique_id=483118221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+
+[editable path="vendmachine"]
+[editable path="Interactable"]

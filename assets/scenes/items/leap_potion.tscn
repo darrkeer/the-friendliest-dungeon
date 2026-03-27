@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b8xs011sco06a"]
+
+[ext_resource type="PackedScene" uid="uid://dfrq04ngdlv4b" path="res://assets/scenes/base_item.tscn" id="1_scwrn"]
+[ext_resource type="PackedScene" uid="uid://chme1vdv7rk1x" path="res://assets/models/green_potion.glb" id="2_odjel"]
+
+[node name="LeapPotion" unique_id=526094752 instance=ExtResource("1_scwrn")]
+item_name = "leap_potion"
+
+[node name="green_potion" parent="HolderHolder/Holder" parent_id_path=PackedInt32Array(1025611576) index="0" unique_id=1593887000 instance=ExtResource("2_odjel")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

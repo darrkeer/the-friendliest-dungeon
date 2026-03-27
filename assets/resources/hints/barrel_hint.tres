@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Hint" format=3 uid="uid://bc8yaxevncxjk"]
+
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="1_ijvch"]
+
+[resource]
+script = ExtResource("1_ijvch")
+hint_text = "press {throw} to leave barrel"
+show_time = 3.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"

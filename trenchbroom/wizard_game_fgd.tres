@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" format=3 uid="uid://nfgbc8paetlo"]
+
+[ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_6oldk"]
+[ext_resource type="Script" uid="uid://drlmgulwbjwqu" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_rbpql"]
+[ext_resource type="Resource" uid="uid://bwrlre1u3bfli" path="res://trenchbroom/maps/entities/barrel.tres" id="2_dynr5"]
+
+[resource]
+script = ExtResource("1_rbpql")
+fgd_name = "wizard_game"
+base_fgd_files = Array[Resource]([ExtResource("1_6oldk")])
+entity_definitions = Array[Resource]([ExtResource("2_dynr5")])
+metadata/_custom_type_script = "uid://drlmgulwbjwqu"

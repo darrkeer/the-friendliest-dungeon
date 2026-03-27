@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cnimriy4l7gla"]
+
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="1_dcqrh"]
+[ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="1_tb551"]
+[ext_resource type="PackedScene" uid="uid://2epqigq2utw6" path="res://assets/scenes/items/key.tscn" id="2_ldsxw"]
+[ext_resource type="Texture2D" uid="uid://dr6ry76fm48k0" path="res://assets/sprites/items/key-render.png" id="4_stoj8"]
+
+[sub_resource type="Resource" id="Resource_783qq"]
+script = ExtResource("1_dcqrh")
+hint_name = "Key"
+hint_text = "Press {throw} button to drop it"
+hint_additional_text = "Locked? No problem."
+show_time = 20.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[resource]
+script = ExtResource("1_tb551")
+item_name = "key"
+scene = ExtResource("2_ldsxw")
+sprite = ExtResource("4_stoj8")
+hint = SubResource("Resource_783qq")
+hover_sound_name = "coin"
+metadata/_custom_type_script = "uid://hymcpei7u2gf"

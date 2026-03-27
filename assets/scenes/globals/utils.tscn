@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://sb7orqnkq3ul"]
+
+[ext_resource type="Script" uid="uid://cynna74s5vm3f" path="res://assets/scripts/utils.gd" id="1_pud8e"]
+
+[node name="Utils" type="Node" unique_id=362470779]
+process_mode = 3
+script = ExtResource("1_pud8e")

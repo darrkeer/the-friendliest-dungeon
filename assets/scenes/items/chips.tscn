@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dgl8e7hrppcvj"]
+
+[ext_resource type="PackedScene" uid="uid://dfrq04ngdlv4b" path="res://assets/scenes/base_item.tscn" id="1_ijamq"]
+[ext_resource type="PackedScene" uid="uid://bbw4wnboo8jc" path="res://assets/models/chips.glb" id="2_55oip"]
+
+[node name="Chips" unique_id=526094752 instance=ExtResource("1_ijamq")]
+item_name = "chips"
+
+[node name="chips" parent="HolderHolder/Holder" parent_id_path=PackedInt32Array(1025611576) index="0" unique_id=498748715 instance=ExtResource("2_55oip")]

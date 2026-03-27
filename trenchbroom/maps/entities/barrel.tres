@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" format=3 uid="uid://bwrlre1u3bfli"]
+
+[ext_resource type="Script" uid="uid://d1nwwgcrner8b" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class_display_descriptor.gd" id="1_i17es"]
+[ext_resource type="PackedScene" uid="uid://bvmtx3og6el08" path="res://assets/scenes/interactable/barrel.tscn" id="2_7dwej"]
+[ext_resource type="Script" uid="uid://cxsqwtsqd8w33" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="2_8kcr6"]
+
+[resource]
+script = ExtResource("2_8kcr6")
+scene_file = ExtResource("2_7dwej")
+classname = "barrel"
+metadata/_custom_type_script = "uid://cxsqwtsqd8w33"

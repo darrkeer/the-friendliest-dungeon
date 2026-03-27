@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b7s6fqh4nqjh6"]
+
+[ext_resource type="Texture2D" uid="uid://8b31u6i8ysu" path="res://assets/sprites/textures/mosaic_texture.png" id="1_gbw8o"]
+
+[resource]
+shading_mode = 2
+albedo_texture = ExtResource("1_gbw8o")
+uv1_triplanar = true
+texture_filter = 0
