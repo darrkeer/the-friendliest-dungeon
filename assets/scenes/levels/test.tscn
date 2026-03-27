@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://ckumj4qwrrt1i"]
+
+[ext_resource type="Material" uid="uid://d176mv5xyo4fi" path="res://assets/materials/base_floor.tres" id="1_s1xgc"]
+[ext_resource type="PackedScene" uid="uid://c6g4j787qscu2" path="res://assets/scenes/player.tscn" id="1_u05g1"]
+[ext_resource type="PackedScene" uid="uid://cu5wnq65wxtvo" path="res://assets/scenes/levels/world_environment.tscn" id="1_y0m8w"]
+[ext_resource type="PackedScene" uid="uid://dnciyitviuahf" path="res://assets/scenes/interactable/door.tscn" id="2_5056v"]
+[ext_resource type="PackedScene" uid="uid://djfu0jghpeyah" path="res://assets/scenes/interactable/locked_door.tscn" id="2_dqk1i"]
+[ext_resource type="PackedScene" uid="uid://cjgf43vqifou4" path="res://assets/scenes/interactable/leap_cauldron.tscn" id="2_wrekw"]
+[ext_resource type="PackedScene" uid="uid://b7e5og616awfp" path="res://assets/scenes/interactable/quiet_cauldron.tscn" id="3_5056v"]
+[ext_resource type="PackedScene" uid="uid://463r8ok0kkrc" path="res://assets/scenes/items/coin.tscn" id="4_65uyh"]
+[ext_resource type="PackedScene" uid="uid://3snr5s52h6pn" path="res://assets/scenes/interactable/speed_cauldron.tscn" id="4_dqk1i"]
+[ext_resource type="PackedScene" uid="uid://2epqigq2utw6" path="res://assets/scenes/items/key.tscn" id="5_htqp6"]
+[ext_resource type="PackedScene" uid="uid://bvmtx3og6el08" path="res://assets/scenes/interactable/barrel.tscn" id="5_nfgqf"]
+[ext_resource type="PackedScene" uid="uid://ddw5tggu60i5r" path="res://assets/scenes/items/empty_bottle.tscn" id="5_y0m8w"]
+[ext_resource type="PackedScene" uid="uid://b8xs011sco06a" path="res://assets/scenes/items/leap_potion.tscn" id="6_306id"]
+[ext_resource type="PackedScene" uid="uid://dtkmaqq8fx0wa" path="res://assets/scenes/items/quiet_potion.tscn" id="7_ouq8d"]
+[ext_resource type="PackedScene" uid="uid://1gju7liy6yj4" path="res://assets/scenes/items/speed_potion.tscn" id="8_k17p8"]
+[ext_resource type="PackedScene" uid="uid://d2hh648mwua70" path="res://assets/scenes/interactable/vending_machine.tscn" id="10_306id"]
+[ext_resource type="PackedScene" uid="uid://drc67j6a0mn8" path="res://assets/scenes/interactable/locked_chest.tscn" id="11_ouq8d"]
+[ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="12_rucus"]
+[ext_resource type="Resource" uid="uid://b4o6x44aque61" path="res://assets/resources/items/coin.tres" id="13_k3inc"]
+[ext_resource type="PackedScene" uid="uid://bwkg1w2dhmkwa" path="res://assets/scenes/interactable/chest.tscn" id="14_k3inc"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_np4up"]
+vertices = PackedVector3Array(13.25, 1, 1, 14.5, 1, 1, 14.5, 1, 0, 13.25, 1, 0, 12.75, 1, -0.5, 12.75, 1, -8.25, -3.75, 1, -14.75, -3.75, 1, 9.75, 12.75, 1, 1.5, 13.25, 1, -8.75, 14.5, 1, -8.75, 14.5, 1, -10, 13.25, 1, -10, 12.75, 1, -10.5, 12.75, 1, -14.75, 14.5, 1, 9.75, 13.25, 1, 7.25, 12.75, 1, 6.75, 14.5, 1, 7.25, 14.25, 5.5, -14.75, 14.25, 5.5, -11.75, 15, 5.5, -11.75, 15, 5.5, -14.75, 15.75, 1, 0, 16, 1, 1, 16.5, 1, -0.75, 21.75, 1, 9.75, 21.75, 1, -14.75, 16.5, 1, -8.25, 16.5, 1, 1.5, 15.75, 1, -10, 16, 1, -8.75, 16.5, 1, -14.75, 16.5, 1, -10.75, 16.5, 1, 6.5, 15.75, 1, 7.25, 14.25, 5.5, -7.25, 14.25, 5.5, -1.75, 15, 5.5, -1.75, 15, 5.5, -7.25, 14.25, 5.5, 2.5, 14.25, 5.5, 5.5, 15, 5.5, 5.5, 15, 5.5, 2.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(0, 8, 3), PackedInt32Array(3, 8, 4), PackedInt32Array(4, 8, 7), PackedInt32Array(12, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(6, 14, 13), PackedInt32Array(9, 5, 12), PackedInt32Array(12, 5, 13), PackedInt32Array(13, 5, 6), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 7), PackedInt32Array(8, 17, 7), PackedInt32Array(16, 18, 15), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(2, 23, 1), PackedInt32Array(1, 23, 24), PackedInt32Array(28, 27, 25), PackedInt32Array(25, 27, 26), PackedInt32Array(29, 24, 23), PackedInt32Array(11, 30, 10), PackedInt32Array(10, 30, 31), PackedInt32Array(33, 32, 27), PackedInt32Array(31, 30, 28), PackedInt32Array(28, 30, 33), PackedInt32Array(28, 33, 27), PackedInt32Array(23, 25, 29), PackedInt32Array(29, 25, 26), PackedInt32Array(26, 34, 29), PackedInt32Array(15, 18, 35), PackedInt32Array(35, 34, 15), PackedInt32Array(15, 34, 26), PackedInt32Array(39, 38, 36), PackedInt32Array(36, 38, 37), PackedInt32Array(43, 42, 40), PackedInt32Array(40, 42, 41)]
+agent_radius = 0.75
+
+[node name="Test" type="Node3D" unique_id=2036363568]
+
+[node name="WorldEnvironment" parent="." unique_id=1208143140 instance=ExtResource("1_y0m8w")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=430731775]
+navigation_mesh = SubResource("NavigationMesh_np4up")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D" unique_id=2038255643]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D" unique_id=914155339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -10.5, -2.5)
+size = Vector3(27, 22, 26)
+material = ExtResource("1_s1xgc")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D/CSGBox3D" unique_id=1029817743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 13, -2)
+size = Vector3(2, 5, 7)
+material = ExtResource("1_s1xgc")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D/CSGBox3D/CSGBox3D" unique_id=1208187809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.75)
+size = Vector3(2, 5, 4.5)
+material = ExtResource("1_s1xgc")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D/CSGBox3D/CSGBox3D/CSGBox3D" unique_id=1543277066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.25)
+size = Vector3(2, 5, 4.5)
+material = ExtResource("1_s1xgc")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1535285811]
+transform = Transform3D(-1, -2.2626686e-08, -8.444392e-08, -7.5710346e-08, 0.7071068, 0.70710677, 4.3711385e-08, 0.70710677, -0.7071068, 4, 11, -9)
+visible = false
+
+[node name="Point2" type="Node3D" parent="." unique_id=1563897990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2, 9)
+
+[node name="Point1" type="Node3D" parent="." unique_id=911486142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 9)
+
+[node name="LockedDoor" parent="." unique_id=694974554 instance=ExtResource("2_dqk1i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 14, 1, 0.4000001)
+
+[node name="Door" parent="." unique_id=302890152 instance=ExtResource("2_5056v")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 14, 1, -9.4)
+
+[node name="LeapCauldron" parent="." unique_id=132471920 instance=ExtResource("2_wrekw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.6, -13)
+
+[node name="QuietCauldron" parent="." unique_id=892174834 instance=ExtResource("3_5056v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -10)
+
+[node name="SpeedCauldron" parent="." unique_id=1531815866 instance=ExtResource("4_dqk1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.6, -14)
+
+[node name="EmptyBottle" parent="." unique_id=526094752 instance=ExtResource("5_y0m8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
+
+[node name="EmptyBottle2" parent="." unique_id=1889175451 instance=ExtResource("5_y0m8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)
+
+[node name="EmptyBottle3" parent="." unique_id=1861394483 instance=ExtResource("5_y0m8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -12)
+
+[node name="EmptyBottle4" parent="." unique_id=8020138 instance=ExtResource("5_y0m8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -10)
+
+[node name="Barrel" parent="." unique_id=1332695617 instance=ExtResource("5_nfgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -2)
+
+[node name="Player" parent="." unique_id=1904397807 instance=ExtResource("1_u05g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -3)
+
+[node name="Coin4" parent="." unique_id=1183724054 instance=ExtResource("4_65uyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 3)
+
+[node name="Coin3" parent="." unique_id=1995061233 instance=ExtResource("4_65uyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, 4)
+
+[node name="Coin2" parent="." unique_id=94681558 instance=ExtResource("4_65uyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 4)
+
+[node name="Coin" parent="." unique_id=1780588034 instance=ExtResource("4_65uyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 6)
+
+[node name="Key" parent="." unique_id=655745264 instance=ExtResource("5_htqp6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 3)
+
+[node name="LeapPotion" parent="." unique_id=239131926 instance=ExtResource("6_306id")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 6)
+
+[node name="QuietPotion" parent="." unique_id=505060760 instance=ExtResource("7_ouq8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 5)
+
+[node name="SpeedPotion" parent="." unique_id=695982236 instance=ExtResource("8_k17p8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 3)
+
+[node name="VendingMachine" parent="." unique_id=1906283489 instance=ExtResource("10_306id")]
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, 6, 0.5, 5)
+
+[node name="Chest" parent="." unique_id=1856871845 instance=ExtResource("14_k3inc")]
+transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, 0.16987324, 1, 0.36602497)
+items = Array[ExtResource("12_rucus")]([ExtResource("13_k3inc")])
+
+[node name="LockedChest" parent="." unique_id=1182493147 instance=ExtResource("11_ouq8d")]
+transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, 1.0502526, 1, -4.9497476)

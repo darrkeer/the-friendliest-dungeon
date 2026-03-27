@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c38ry3m1w1mtu"]
+
+[ext_resource type="PackedScene" uid="uid://ug774w7rnj4x" path="res://assets/models/door.glb" id="1_kxvl0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnqh7"]
+size = Vector3(0.4, 5.3, 3.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gsuid"]
+size = Vector3(0.8, 6.1, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m72cv"]
+size = Vector3(0.8, 6.1, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8757c"]
+size = Vector3(0.8, 0.7, 4.3)
+
+[node name="EmptyDoor" type="Node3D" unique_id=1810985364]
+
+[node name="door" parent="." unique_id=1883286404 instance=ExtResource("1_kxvl0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="Cube" parent="door" index="0" unique_id=821991973]
+transform = Transform3D(-0.46259755, 0, -0.88656837, 0, 1, 0, 0.88656837, 0, -0.46259755, 0, 2.1146789, 1.6764815)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door/Cube" index="0" unique_id=791255935]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/Cube/StaticBody3D" unique_id=1618690200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4901161e-08, 0.035321236, -1.6264814)
+shape = SubResource("BoxShape3D_tnqh7")
+
+[node name="Cube_001" parent="door" index="1" unique_id=1379013733]
+transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door/Cube_001" index="0" unique_id=2087502791]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/Cube_001/StaticBody3D" unique_id=2133325187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2957406e-05, 2.4499998, 1.9999999)
+shape = SubResource("BoxShape3D_gsuid")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="door/Cube_001/StaticBody3D" unique_id=106182515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 2.4499998, -1.65)
+shape = SubResource("BoxShape3D_m72cv")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="door/Cube_001/StaticBody3D" unique_id=128240549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 5.15, 0.14999992)
+shape = SubResource("BoxShape3D_8757c")
+
+[node name="AnimationPlayer" parent="door" index="2" unique_id=389805172]
+autoplay = &"closed"
+
+[editable path="door"]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://2epqigq2utw6"]
+
+[ext_resource type="PackedScene" uid="uid://dfrq04ngdlv4b" path="res://assets/scenes/base_item.tscn" id="1_mv3sk"]
+[ext_resource type="PackedScene" uid="uid://dug1w5bsyahw7" path="res://assets/models/key.glb" id="2_5iirw"]
+
+[node name="Key" unique_id=526094752 instance=ExtResource("1_mv3sk")]
+item_name = "key"
+
+[node name="Holder" parent="HolderHolder" parent_id_path=PackedInt32Array(1542890590) index="1" unique_id=1025611576]
+transform = Transform3D(-1.1276312, -0.5130302, -1.04907336e-07, -0.41042417, 1.409539, 0, 9.858065e-08, 4.4850523e-08, -1.2, -0.5, 0.5, 0)
+
+[node name="key" parent="HolderHolder/Holder" index="0" unique_id=695674478 instance=ExtResource("2_5iirw")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7000001, 0, 0, 0, 0.70000017, 0, 0, 0)

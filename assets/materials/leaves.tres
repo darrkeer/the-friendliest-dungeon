@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://da37yti2fyumb"]
+
+[ext_resource type="Texture2D" uid="uid://bcsl76la6soqi" path="res://assets/sprites/textures/leaves.png" id="1_sli0o"]
+
+[resource]
+shading_mode = 2
+albedo_texture = ExtResource("1_sli0o")
+uv1_triplanar = true
+texture_filter = 0

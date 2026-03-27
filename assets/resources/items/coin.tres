@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://b4o6x44aque61"]
+
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="1_0qb81"]
+[ext_resource type="PackedScene" uid="uid://463r8ok0kkrc" path="res://assets/scenes/items/coin.tscn" id="2_iplx1"]
+[ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="3_15o2b"]
+[ext_resource type="Texture2D" uid="uid://muaraiptnmul" path="res://assets/sprites/items/coin-render.png" id="4_cuw83"]
+
+[sub_resource type="Resource" id="Resource_ajg8u"]
+script = ExtResource("1_0qb81")
+hint_name = "Coin"
+hint_text = "Press {throw} button to drop it"
+hint_additional_text = "May be exchanged?"
+show_time = 20.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[resource]
+script = ExtResource("3_15o2b")
+item_name = "coin"
+scene = ExtResource("2_iplx1")
+sprite = ExtResource("4_cuw83")
+hint = SubResource("Resource_ajg8u")
+hover_sound_name = "coin"
+metadata/_custom_type_script = "uid://hymcpei7u2gf"

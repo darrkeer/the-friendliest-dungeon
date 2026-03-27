@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d176mv5xyo4fi"]
+
+[ext_resource type="Texture2D" uid="uid://djkn0w83doe3h" path="res://assets/sprites/floor.png" id="1_txluf"]
+
+[resource]
+shading_mode = 2
+albedo_texture = ExtResource("1_txluf")
+uv1_triplanar = true
+texture_filter = 0

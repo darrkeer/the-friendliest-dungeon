@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cjrn5u5irrdxw"]
+
+[ext_resource type="Texture2D" uid="uid://bm2xn8jhxyvr5" path="res://assets/sprites/textures/mossy_cobble_texture.png" id="1_t1nh2"]
+
+[resource]
+shading_mode = 2
+albedo_texture = ExtResource("1_t1nh2")
+uv1_triplanar = true
+texture_filter = 0

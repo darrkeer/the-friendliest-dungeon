@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cy7f3i20vgxi"]
+
+[ext_resource type="Texture2D" uid="uid://wv50a87wk0ba" path="res://assets/sprites/textures/smooth_stone_texture.png" id="1_c5m34"]
+
+[resource]
+shading_mode = 2
+albedo_texture = ExtResource("1_c5m34")
+uv1_triplanar = true
+texture_filter = 0

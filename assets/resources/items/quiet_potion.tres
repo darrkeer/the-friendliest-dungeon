@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Potion" format=3 uid="uid://yhywigpgdp2k"]
+
+[ext_resource type="Script" uid="uid://yoqw3k0vs3y" path="res://assets/scripts/effects/quiet_effect.gd" id="1_42spu"]
+[ext_resource type="Script" uid="uid://c0ujknaggfxk5" path="res://assets/scripts/item/potion.gd" id="1_g60b7"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="1_qjogx"]
+[ext_resource type="PackedScene" uid="uid://dtkmaqq8fx0wa" path="res://assets/scenes/items/quiet_potion.tscn" id="2_42spu"]
+[ext_resource type="Texture2D" uid="uid://d26g8n2ompk3h" path="res://assets/sprites/items/purple-potion-render.png" id="4_3uppv"]
+
+[sub_resource type="Resource" id="Resource_3uppv"]
+script = ExtResource("1_42spu")
+metadata/_custom_type_script = "uid://yoqw3k0vs3y"
+
+[sub_resource type="Resource" id="Resource_6flox"]
+script = ExtResource("1_qjogx")
+hint_name = "Quiet Potion"
+hint_text = "press {interact} to drink it"
+hint_additional_text = "???"
+show_time = 20.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[resource]
+script = ExtResource("1_g60b7")
+effect = SubResource("Resource_3uppv")
+duration = 10.0
+item_name = "quiet_potion"
+scene = ExtResource("2_42spu")
+sprite = ExtResource("4_3uppv")
+hint = SubResource("Resource_6flox")
+hover_sound_name = "bottle"
+metadata/_custom_type_script = "uid://c0ujknaggfxk5"

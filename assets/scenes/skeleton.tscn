@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://ctkxhlb6umqb6"]
+
+[ext_resource type="Script" uid="uid://bsy7gy2hllcya" path="res://assets/scripts/enemies/enemy_base.gd" id="1_c7ued"]
+[ext_resource type="PackedScene" uid="uid://6jddhb8hika7" path="res://assets/models/skeleton.glb" id="1_e3jv6"]
+[ext_resource type="PackedScene" uid="uid://dwneaxg32sbuf" path="res://assets/scenes/state_machine.tscn" id="2_aa7ji"]
+[ext_resource type="PackedScene" uid="uid://bbw4wnboo8jc" path="res://assets/models/chips.glb" id="2_f58of"]
+[ext_resource type="Resource" uid="uid://c7jd5lea31xoj" path="res://assets/resources/items/chips.tres" id="2_y6s66"]
+[ext_resource type="Script" uid="uid://cbkya0sgi3elm" path="res://assets/scripts/enemies/melee/melee_wait.gd" id="4_t7mfl"]
+[ext_resource type="Script" uid="uid://blrnvdge7wmoj" path="res://assets/scripts/enemies/melee/melee_patrol.gd" id="5_cfvsk"]
+[ext_resource type="Script" uid="uid://cw4j8ocnl4btc" path="res://assets/scripts/enemies/melee/melee_shock.gd" id="6_j1mly"]
+[ext_resource type="Script" uid="uid://c6ycgu3dttnro" path="res://assets/scripts/enemies/melee/melee_chase_player.gd" id="7_bqewm"]
+[ext_resource type="PackedScene" uid="uid://b4s2jwxnkbbbc" path="res://assets/scenes/shock_sign.tscn" id="8_0gnoo"]
+[ext_resource type="Script" uid="uid://bns2isp3gc44o" path="res://assets/scripts/enemies/melee/melee_chase_sound.gd" id="8_5k3ia"]
+[ext_resource type="Script" uid="uid://dpr4w4daikrj1" path="res://assets/scripts/enemies/melee/melee_attack.gd" id="9_5mlq5"]
+[ext_resource type="Script" uid="uid://c46exip4ggugv" path="res://assets/scripts/enemies/melee/melee_eat.gd" id="11_lytr4"]
+[ext_resource type="Script" uid="uid://fp4lkdyeep5c" path="res://assets/scripts/enemies/melee/melee_chase_food.gd" id="12_1s87m"]
+
+[sub_resource type="Animation" id="Animation_lytr4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 1.9, -0.70000005)]
+}
+
+[sub_resource type="Animation" id="Animation_1s87m"]
+resource_name = "fuck you"
+length = 0.50000334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.23333335, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.1, 2, -0.8000001), Vector3(0.1, 1.9, -0.70000005), Vector3(0.1, 1.8, -0.70000005), Vector3(0.1, 2, -0.70000005), Vector3(0.1, 2.1, -0.70000005)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y6s66"]
+_data = {
+&"RESET": SubResource("Animation_lytr4"),
+&"fuck you": SubResource("Animation_1s87m")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7mfl"]
+radius = 0.25
+height = 3.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lytr4"]
+radius = 8.0
+
+[node name="Skeleton" type="CharacterBody3D" unique_id=987335548 node_paths=PackedStringArray("food_area", "agent", "walk_sound_timer")]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_c7ued")
+VIEW_ANGLE = 120.0
+VIEW_DISTANCE = 7.0
+HEAR_DISTANCE = 12.0
+INACTIVE_DISTANCE = 25.0
+MOVE_SPEED = 4.0
+ATTACK_RANGE = 2.0
+food_area = NodePath("FoodArea")
+favourite_food = ExtResource("2_y6s66")
+agent = NodePath("NavigationAgent3D")
+walk_sound_timer = NodePath("Timer")
+
+[node name="chips" parent="." unique_id=498748715 instance=ExtResource("2_f58of")]
+transform = Transform3D(0.0067672567, -0.02525579, -0.29885837, -0.07735026, 0.28867504, -0.026146716, 0.28977773, 0.07764572, -1.2666585e-08, 0.1, 1.9, -0.70000005)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="chips" unique_id=252957206]
+libraries/ = SubResource("AnimationLibrary_y6s66")
+autoplay = &"fuck you"
+
+[node name="skeleton" parent="." unique_id=1981235860 instance=ExtResource("1_e3jv6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="skeleton/Armature" parent_id_path=PackedInt32Array(1981235860, 2008292043) index="0" unique_id=2128207410]
+bones/0/position = Vector3(7.115287e-15, 3.8067384, -0.21086885)
+bones/1/rotation = Quaternion(-0.1767543, -0.003367031, 0.0057564564, 0.9842325)
+bones/2/rotation = Quaternion(0.10475102, 0.0038569798, -0.0056195934, 0.9944751)
+bones/3/position = Vector3(-1.1875244, 1.0849184, 0.0776767)
+bones/3/rotation = Quaternion(0.8515646, 0.020951957, -0.008373871, -0.52376395)
+bones/4/rotation = Quaternion(0.68549794, 0.43122506, -0.17703882, 0.5592807)
+bones/5/rotation = Quaternion(-0.28145114, -0.33946413, -0.558319, 0.70272994)
+bones/6/position = Vector3(1.1875247, 1.0849179, 0.07767658)
+bones/6/rotation = Quaternion(0.9247759, 0.20015718, 0.0446651, -0.32051808)
+bones/7/rotation = Quaternion(0.6156635, -0.12893775, 0.24612026, 0.73739976)
+bones/8/rotation = Quaternion(-0.027231619, 0.049366854, 0.41119778, 0.909801)
+bones/9/rotation = Quaternion(0.9630325, -0.018002992, 0.22693388, 0.1440328)
+bones/10/rotation = Quaternion(-0.082299955, -0.0006231631, -0.06937985, 0.9941895)
+bones/11/rotation = Quaternion(0.7218562, -0.016751422, 0.31924382, 0.6137805)
+bones/12/rotation = Quaternion(0.97443044, 0.03795106, -0.21991661, 0.026112163)
+bones/13/rotation = Quaternion(-0.082299925, 0.0006231343, 0.06937981, 0.9941895)
+bones/14/rotation = Quaternion(0.6530954, 1.1095714e-06, -0.30472133, 0.6932614)
+
+[node name="AnimationPlayer" parent="skeleton" index="1" unique_id=1267862617]
+autoplay = &"idle"
+
+[node name="StateMachine" parent="." unique_id=372079757 instance=ExtResource("2_aa7ji")]
+initial_state = "patrol"
+
+[node name="PatrolWait" type="Node" parent="StateMachine" unique_id=187554168 node_paths=PackedStringArray("base", "wait_on_point_timer", "animation_player")]
+script = ExtResource("4_t7mfl")
+base = NodePath("../..")
+wait_on_point_timer = NodePath("WaitTimer")
+animation_player = NodePath("../../skeleton/AnimationPlayer")
+animation_name = "idle"
+state_name = "patrol_wait"
+
+[node name="WaitTimer" type="Timer" parent="StateMachine/PatrolWait" unique_id=1606768038]
+wait_time = 5.0
+one_shot = true
+
+[node name="Patrol" type="Node" parent="StateMachine" unique_id=857432500 node_paths=PackedStringArray("base", "animation_player")]
+script = ExtResource("5_cfvsk")
+base = NodePath("../..")
+animation_player = NodePath("../../skeleton/AnimationPlayer")
+animation_name = "run"
+state_name = "patrol"
+
+[node name="Shock" type="Node" parent="StateMachine" unique_id=1009979641 node_paths=PackedStringArray("base", "shock_timer", "particles", "animation_player")]
+script = ExtResource("6_j1mly")
+base = NodePath("../..")
+shock_timer = NodePath("Timer")
+particles = NodePath("../../ShockSign/Exclamation")
+animation_player = NodePath("../../skeleton/AnimationPlayer")
+animation_name = "shock"
+state_name = "shock"
+
+[node name="Timer" type="Timer" parent="StateMachine/Shock" unique_id=1112956863]
+wait_time = 0.5
+one_shot = true
+
+[node name="ChasePlayer" type="Node" parent="StateMachine" unique_id=1711282337 node_paths=PackedStringArray("base", "update_path_timer", "animation_player")]
+script = ExtResource("7_bqewm")
+base = NodePath("../..")
+update_path_timer = NodePath("Timer")
+animation_player = NodePath("../../skeleton/AnimationPlayer")
+animation_name = "run"
+state_name = "chase_player"
+
+[node name="Timer" type="Timer" parent="StateMachine/ChasePlayer" unique_id=1017238547]
+wait_time = 0.5
+
+[node name="ChaseSound" type="Node" parent="StateMachine" unique_id=223962340 node_paths=PackedStringArray("base", "update_path_timer", "particles", "animation_player")]
+script = ExtResource("8_5k3ia")
+base = NodePath("../..")
+update_path_timer = NodePath("Timer")
+particles = NodePath("../../ShockSign/Question")
+animation_player = NodePath("../../skeleton/AnimationPlayer")
+animation_name = "run"
+state_name = "chase_sound"
+
+[node name="Timer" type="Timer" parent="StateMachine/ChaseSound" unique_id=2002811506]
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=850540748 node_paths=PackedStringArray("base", "attack_timer", "animation_player")]
+script = ExtResource("9_5mlq5")
+base = NodePath("../..")
+attack_timer = NodePath("Timer")
+animation_player = NodePath("../../skeleton/AnimationPlayer")
+animation_name = "attack"
+state_name = "attack"
+
+[node name="Timer" type="Timer" parent="StateMachine/Attack" unique_id=277292348]
+one_shot = true
+
+[node name="Eat" type="Node" parent="StateMachine" unique_id=914147420 node_paths=PackedStringArray("base", "food", "food_animation_player", "sound_timer", "animation_player")]
+script = ExtResource("11_lytr4")
+base = NodePath("../..")
+food = NodePath("../../chips")
+food_animation_player = NodePath("../../chips/AnimationPlayer")
+sound_timer = NodePath("Timer")
+animation_player = NodePath("../../skeleton/AnimationPlayer")
+animation_name = "eat"
+state_name = "eat"
+
+[node name="Timer" type="Timer" parent="StateMachine/Eat" unique_id=221303207]
+autostart = true
+
+[node name="ChaseFood" type="Node" parent="StateMachine" unique_id=660552074 node_paths=PackedStringArray("base", "animation_player")]
+script = ExtResource("12_1s87m")
+base = NodePath("../..")
+animation_player = NodePath("../../skeleton/AnimationPlayer")
+animation_name = "run"
+state_name = "chase_food"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=348735262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+shape = SubResource("CapsuleShape3D_t7mfl")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2038300210]
+path_desired_distance = 0.5
+target_desired_distance = 0.1
+path_height_offset = 0.5
+
+[node name="ShockSign" parent="." unique_id=1374884266 instance=ExtResource("8_0gnoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7, 0)
+
+[node name="FoodArea" type="Area3D" parent="." unique_id=863490387]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FoodArea" unique_id=555305150]
+shape = SubResource("SphereShape3D_lytr4")
+
+[node name="Timer" type="Timer" parent="." unique_id=2074377881]
+wait_time = 0.5
+autostart = true
+
+[editable path="skeleton"]
+[editable path="ShockSign"]

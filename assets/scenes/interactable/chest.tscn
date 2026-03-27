@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bwkg1w2dhmkwa"]
+
+[ext_resource type="PackedScene" uid="uid://drc67j6a0mn8" path="res://assets/scenes/interactable/locked_chest.tscn" id="1_um8m0"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="2_2hmeq"]
+
+[sub_resource type="Resource" id="Resource_1n88c"]
+script = ExtResource("2_2hmeq")
+hint_name = "Chest"
+hint_text = "press {interact} to open it"
+show_time = 10.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[node name="Chest" unique_id=132471920 instance=ExtResource("1_um8m0")]
+first_hint = SubResource("Resource_1n88c")
+exchange_item = null
+exchange_sound_name = "chest_open"
+
+[editable path="Interactable"]
+[editable path="chest"]

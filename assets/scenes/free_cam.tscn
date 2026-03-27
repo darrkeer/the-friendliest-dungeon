@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cusx4xc2ap3pt"]
+
+[ext_resource type="Script" uid="uid://cycbwcxah3mp3" path="res://assets/scripts/free_cam.gd" id="1_jsn2y"]
+
+[node name="FreeCam" type="CharacterBody3D" unique_id=793457700 node_paths=PackedStringArray("cam")]
+script = ExtResource("1_jsn2y")
+cam = NodePath("Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1185686005]

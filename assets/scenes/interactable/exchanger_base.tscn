@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bv5huj6aqhsgw"]
+
+[ext_resource type="PackedScene" uid="uid://bmdtm6gpr5oa7" path="res://assets/scenes/interactable.tscn" id="1_6j1at"]
+[ext_resource type="Script" uid="uid://dranjqgvfiyev" path="res://assets/scripts/interactable/exchanger_base.gd" id="1_dsb73"]
+[ext_resource type="PackedScene" uid="uid://dwneaxg32sbuf" path="res://assets/scenes/state_machine.tscn" id="3_qg1qg"]
+[ext_resource type="Script" uid="uid://crqkc8anbd1ho" path="res://assets/scripts/interactable/exchanger_base_idle.gd" id="4_djtus"]
+[ext_resource type="Script" uid="uid://cwq61nkp476hg" path="res://assets/scripts/interactable/exchanger_base_exchange.gd" id="5_j6aqg"]
+[ext_resource type="Script" uid="uid://c5cxg4kyydpoq" path="res://assets/scripts/interactable/exchanger_base_not_enough.gd" id="6_w7pm7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bk4u7"]
+size = Vector3(1.5, 1.2, 1.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mb6ho"]
+radius = 2.0
+
+[node name="ExchangerBase" type="StaticBody3D" unique_id=132471920 node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("1_dsb73")
+exchange_delay = 0.1
+spawn_point = NodePath("SpawnPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=568103354]
+shape = SubResource("BoxShape3D_bk4u7")
+
+[node name="Interactable" parent="." unique_id=510802579 instance=ExtResource("1_6j1at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" parent="Interactable" index="0" unique_id=86648199]
+shape = SubResource("SphereShape3D_mb6ho")
+
+[node name="StateMachine" parent="." unique_id=372079757 instance=ExtResource("3_qg1qg")]
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1763834485 node_paths=PackedStringArray("base", "interactable")]
+script = ExtResource("4_djtus")
+base = NodePath("../..")
+interactable = NodePath("../../Interactable")
+state_name = "idle"
+
+[node name="Exchange" type="Node" parent="StateMachine" unique_id=1662187298 node_paths=PackedStringArray("base")]
+script = ExtResource("5_j6aqg")
+base = NodePath("../..")
+state_name = "exchange"
+
+[node name="NotEnough" type="Node" parent="StateMachine" unique_id=557051637]
+script = ExtResource("6_w7pm7")
+state_name = "not_enough"
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=483118221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[editable path="Interactable"]

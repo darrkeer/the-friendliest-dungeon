@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://brtg6s0uiptiv"]
+
+[ext_resource type="Script" uid="uid://cn8imdaen8pkp" path="res://assets/scripts/ui/ui_flow_effect.gd" id="1_435ko"]
+[ext_resource type="Script" uid="uid://3gs270ca7jv0" path="res://assets/scripts/ui/hot_bar.gd" id="1_toyda"]
+[ext_resource type="PackedScene" uid="uid://b8kr22ediaa8b" path="res://assets/scenes/ui/hotbar_slot.tscn" id="2_muegw"]
+
+[node name="HotBar" type="Control" unique_id=1460064413 node_paths=PackedStringArray("hotbar_contaiter")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_toyda")
+hotbar_contaiter = NodePath("Shake/MarginContainer/HBoxContainer")
+hotbar_slot = ExtResource("2_muegw")
+
+[node name="Shake" type="Control" parent="." unique_id=1452959279]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_435ko")
+repeat_time = 1.0
+flow_time = 0.5
+max_x = 5
+max_y = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Shake" unique_id=1202222616]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -64.0
+offset_right = 66.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shake/MarginContainer" unique_id=883015704]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

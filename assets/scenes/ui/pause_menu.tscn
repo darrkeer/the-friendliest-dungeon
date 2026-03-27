@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://p21mw87bhook"]
+
+[ext_resource type="FontFile" uid="uid://jrl67ela7vn7" path="res://assets/misc/fonts/The Chaosland.ttf" id="1_4ph20"]
+[ext_resource type="Script" uid="uid://deitafwgxi7o4" path="res://assets/scripts/ui/pause_menu/pause_menu.gd" id="1_kv60v"]
+[ext_resource type="LabelSettings" uid="uid://btte5b0i0syjt" path="res://assets/misc/little.tres" id="2_l31ca"]
+[ext_resource type="LabelSettings" uid="uid://n4gegin815mh" path="res://assets/misc/normal.tres" id="3_kv60v"]
+[ext_resource type="Theme" uid="uid://c7i7advk8bb72" path="res://assets/misc/pause_theme.tres" id="4_5amqb"]
+[ext_resource type="Script" uid="uid://up5s6q1guf8h" path="res://assets/scripts/ui/pause_menu/settings_slider.gd" id="6_kv60v"]
+[ext_resource type="Script" uid="uid://cfy684h6rrt40" path="res://assets/scripts/ui/pause_menu/settings_checkbutton.gd" id="7_5amqb"]
+
+[sub_resource type="Theme" id="Theme_h4caf"]
+
+[sub_resource type="Theme" id="Theme_4ph20"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_blhnk"]
+font = ExtResource("1_4ph20")
+font_size = 40
+font_color = Color(1, 1, 0.23529412, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-4, 4)
+
+[node name="PauseMenu" type="Control" unique_id=1743195751 node_paths=PackedStringArray("back_button", "restart_button")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_h4caf")
+script = ExtResource("1_kv60v")
+back_button = NodePath("MarginContainer/VBoxContainer/BackButton")
+restart_button = NodePath("MarginContainer/VBoxContainer/RestartButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=627438638]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -210.5
+offset_bottom = 210.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 67
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=434895490]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+theme_override_constants/separation = 16
+
+[node name="Info" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=625411267]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+
+[node name="PAUSED" type="Label" parent="MarginContainer/VBoxContainer/Info" unique_id=1269849562]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_blhnk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PAUSED2" type="Label" parent="MarginContainer/VBoxContainer/Info" unique_id=1176229254]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+text = "everyone will wait..."
+label_settings = ExtResource("2_l31ca")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MouseSensetivity" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=804627305]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MouseSensetivity" unique_id=1995790399]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MouseSensetivity/MarginContainer" unique_id=783440611]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MouseSensetivity/MarginContainer/VBoxContainer" unique_id=1598988577]
+layout_mode = 2
+text = "mouse sensetivity"
+label_settings = ExtResource("3_kv60v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MouseSensetivity/MarginContainer/VBoxContainer" unique_id=1758755442]
+layout_mode = 2
+script = ExtResource("6_kv60v")
+setting_name = "mouse_sens"
+
+[node name="CameraDistance" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=667421156]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CameraDistance" unique_id=1898009234]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CameraDistance/MarginContainer" unique_id=1009532328]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CameraDistance/MarginContainer/VBoxContainer" unique_id=1707882925]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+text = "camera distance"
+label_settings = ExtResource("3_kv60v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/CameraDistance/MarginContainer/VBoxContainer" unique_id=911836736]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+script = ExtResource("6_kv60v")
+setting_name = "camera_distance"
+
+[node name="SoundVolume" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=148789537]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/SoundVolume" unique_id=72248457]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SoundVolume/MarginContainer" unique_id=320257827]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SoundVolume/MarginContainer/VBoxContainer" unique_id=1138294390]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+text = "sound volume"
+label_settings = ExtResource("3_kv60v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SoundVolume/MarginContainer/VBoxContainer" unique_id=1957615634]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+script = ExtResource("6_kv60v")
+setting_name = "sfx_volume"
+
+[node name="MusicVolume" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=853094560]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MusicVolume" unique_id=96807182]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MusicVolume/MarginContainer" unique_id=496370455]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MusicVolume/MarginContainer/VBoxContainer" unique_id=791818086]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+text = "music volume"
+label_settings = ExtResource("3_kv60v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MusicVolume/MarginContainer/VBoxContainer" unique_id=335604816]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+script = ExtResource("6_kv60v")
+setting_name = "bgm_volume"
+
+[node name="InvertMouse" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1230963966]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_5amqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/InvertMouse" unique_id=1580409722]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/InvertMouse/MarginContainer" unique_id=1357839593]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/InvertMouse/MarginContainer/VBoxContainer" unique_id=832457883]
+layout_mode = 2
+theme = SubResource("Theme_4ph20")
+text = "invert mouse"
+label_settings = ExtResource("3_kv60v")
+horizontal_alignment = 1
+
+[node name="X" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InvertMouse/MarginContainer/VBoxContainer" unique_id=1051430371]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_4ph20")
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/InvertMouse/MarginContainer/VBoxContainer/X" unique_id=54161959]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme = SubResource("Theme_4ph20")
+text = "X     "
+label_settings = ExtResource("2_l31ca")
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/InvertMouse/MarginContainer/VBoxContainer/X" unique_id=419039883]
+layout_mode = 2
+script = ExtResource("7_5amqb")
+setting_name = "invert_mouse_x"
+
+[node name="Y" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InvertMouse/MarginContainer/VBoxContainer" unique_id=1060234906]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_4ph20")
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/InvertMouse/MarginContainer/VBoxContainer/Y" unique_id=631025151]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme = SubResource("Theme_4ph20")
+text = "Y     "
+label_settings = ExtResource("2_l31ca")
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/InvertMouse/MarginContainer/VBoxContainer/Y" unique_id=270040821]
+layout_mode = 2
+script = ExtResource("7_5amqb")
+setting_name = "invert_mouse_y"
+
+[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=24767592]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+text = "Restart level"
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=971359308]
+layout_mode = 2
+theme = ExtResource("4_5amqb")
+text = "back"

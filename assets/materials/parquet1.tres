@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dvcpo30c7qet2"]
+
+[ext_resource type="Texture2D" uid="uid://nj0b6p3juve1" path="res://assets/sprites/textures/parquet_texture.png" id="1_gso0g"]
+
+[resource]
+shading_mode = 2
+albedo_texture = ExtResource("1_gso0g")
+uv1_triplanar = true
+texture_filter = 0

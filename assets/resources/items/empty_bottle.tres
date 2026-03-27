@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://py4hvf83px5p"]
+
+[ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="1_2wtov"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="1_b2ev0"]
+[ext_resource type="PackedScene" uid="uid://ddw5tggu60i5r" path="res://assets/scenes/items/empty_bottle.tscn" id="2_b2ev0"]
+[ext_resource type="Texture2D" uid="uid://bac6qr6qm1cf7" path="res://assets/sprites/items/empty-bottle-render.png" id="4_4utku"]
+
+[sub_resource type="Resource" id="Resource_0qcjm"]
+script = ExtResource("1_b2ev0")
+hint_name = "Empty Bottle"
+hint_text = "press {throw} to throw it"
+hint_additional_text = "what it could be?"
+show_time = 20.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[resource]
+script = ExtResource("1_2wtov")
+item_name = "empty_bottle"
+scene = ExtResource("2_b2ev0")
+sprite = ExtResource("4_4utku")
+hint = SubResource("Resource_0qcjm")
+hover_sound_name = "bottle"
+metadata/_custom_type_script = "uid://hymcpei7u2gf"

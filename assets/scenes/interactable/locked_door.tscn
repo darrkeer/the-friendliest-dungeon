@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://djfu0jghpeyah"]
+
+[ext_resource type="PackedScene" uid="uid://dnciyitviuahf" path="res://assets/scenes/interactable/door.tscn" id="1_rb0dm"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="2_5igpk"]
+[ext_resource type="Script" uid="uid://ffjdwayygdx" path="res://assets/scripts/interactable/locked_door_closed.gd" id="3_jrx3u"]
+[ext_resource type="Resource" uid="uid://cnimriy4l7gla" path="res://assets/resources/items/key.tres" id="4_5igpk"]
+
+[sub_resource type="Resource" id="Resource_6ocrk"]
+script = ExtResource("2_5igpk")
+hint_name = "Locked Door"
+hint_text = "press {interact} to open"
+hint_additional_text = "no keys?"
+show_time = 10.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[sub_resource type="Resource" id="Resource_5igpk"]
+script = ExtResource("2_5igpk")
+hint_text = "press {interact} to open"
+show_time = 3.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[node name="LockedDoor" unique_id=694974554 instance=ExtResource("1_rb0dm")]
+
+[node name="Interactable" parent="." index="0" unique_id=510802579]
+hint = SubResource("Resource_6ocrk")
+
+[node name="Closed" parent="StateMachine" parent_id_path=PackedInt32Array(372079757) index="3" unique_id=336550147]
+script = ExtResource("3_jrx3u")
+unlocking_item = ExtResource("4_5igpk")
+unlocked_hint = SubResource("Resource_5igpk")
+
+[editable path="door"]

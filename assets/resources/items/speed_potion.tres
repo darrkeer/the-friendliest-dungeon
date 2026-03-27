@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Potion" format=3 uid="uid://dnldojqxksrt"]
+
+[ext_resource type="Script" uid="uid://c0ujknaggfxk5" path="res://assets/scripts/item/potion.gd" id="1_ewgmy"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="1_pyaox"]
+[ext_resource type="Script" uid="uid://ddkh3lg5k3r" path="res://assets/scripts/effects/speed_effect.gd" id="1_yhjuf"]
+[ext_resource type="PackedScene" uid="uid://1gju7liy6yj4" path="res://assets/scenes/items/speed_potion.tscn" id="2_yhjuf"]
+[ext_resource type="Texture2D" uid="uid://bkntq6fni5fra" path="res://assets/sprites/items/red-potion-render.png" id="4_rberd"]
+
+[sub_resource type="Resource" id="Resource_rberd"]
+script = ExtResource("1_yhjuf")
+multiplier = 2.0
+duration = 30.0
+metadata/_custom_type_script = "uid://ddkh3lg5k3r"
+
+[sub_resource type="Resource" id="Resource_vv1sn"]
+script = ExtResource("1_pyaox")
+hint_name = "Speed Potion"
+hint_text = "press {interact} to drink it"
+hint_additional_text = "gotta go fast"
+show_time = 20.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[resource]
+script = ExtResource("1_ewgmy")
+effect = SubResource("Resource_rberd")
+duration = 30.0
+item_name = "speed_potion"
+scene = ExtResource("2_yhjuf")
+sprite = ExtResource("4_rberd")
+hint = SubResource("Resource_vv1sn")
+hover_sound_name = "bottle"
+metadata/_custom_type_script = "uid://c0ujknaggfxk5"

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dwvjtimuua3l6"]
+
+[ext_resource type="Script" uid="uid://ip4cp1ryj4cs" path="res://assets/scripts/ui/hpbar_controller.gd" id="1_mpagg"]
+[ext_resource type="PackedScene" uid="uid://1aa12h1ba0nv" path="res://assets/scenes/ui/heart.tscn" id="2_n5jxv"]
+[ext_resource type="Script" uid="uid://d1wboegevl7bl" path="res://assets/scripts/ui/ui_shake_effect.gd" id="3_7wqyb"]
+
+[node name="HPBar" type="Control" unique_id=812152129 node_paths=PackedStringArray("heart_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mpagg")
+heart = ExtResource("2_n5jxv")
+heart_container = NodePath("Shake/MarginContainer/HeartContainer")
+
+[node name="Shake" type="Control" parent="." unique_id=1081718607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_7wqyb")
+repeat_time = 0.3
+single_move_time = 0.05
+min_x = -3
+max_x = 3
+min_y = -3
+max_y = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Shake" unique_id=60518801]
+layout_mode = 0
+offset_right = 135.0
+offset_bottom = 67.0
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+
+[node name="HeartContainer" type="HBoxContainer" parent="Shake/MarginContainer" unique_id=955607970]
+layout_mode = 2

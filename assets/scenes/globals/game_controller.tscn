@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://blbwu8yj5xk7m"]
+
+[ext_resource type="Script" uid="uid://rnal4lx87djk" path="res://assets/scripts/game_controller.gd" id="1_2ealq"]
+[ext_resource type="Script" uid="uid://cgh4kwy6ycxus" path="res://assets/scripts/level_resource.gd" id="2_nwtf0"]
+[ext_resource type="Resource" uid="uid://cnqiqdrjffxfc" path="res://assets/resources/test_level.tres" id="3_7bcgs"]
+[ext_resource type="Resource" uid="uid://ctmyxahganfx" path="res://assets/resources/empty_level.tres" id="4_l7jgy"]
+[ext_resource type="PackedScene" uid="uid://cuj4blboub4k0" path="res://assets/scenes/levels/tutorial.tscn" id="4_tj0gu"]
+[ext_resource type="PackedScene" uid="uid://bhpsgu37u2gpx" path="res://assets/scenes/levels/level_1.tscn" id="6_ym5ah"]
+[ext_resource type="PackedScene" uid="uid://1hnqbt7bhrme" path="res://assets/scenes/levels/level_2.tscn" id="7_pbqdo"]
+[ext_resource type="PackedScene" uid="uid://bd0hrm01sx67s" path="res://assets/scenes/levels/framing_logo_level.tscn" id="8_gfyrf"]
+
+[sub_resource type="Resource" id="Resource_ym5ah"]
+script = ExtResource("2_nwtf0")
+level_name = "tutorial"
+scene = ExtResource("4_tj0gu")
+metadata/_custom_type_script = "uid://cgh4kwy6ycxus"
+
+[sub_resource type="Resource" id="Resource_pbqdo"]
+script = ExtResource("2_nwtf0")
+level_name = "level_1"
+scene = ExtResource("6_ym5ah")
+metadata/_custom_type_script = "uid://cgh4kwy6ycxus"
+
+[sub_resource type="Resource" id="Resource_gfyrf"]
+script = ExtResource("2_nwtf0")
+level_name = "level_2"
+scene = ExtResource("7_pbqdo")
+metadata/_custom_type_script = "uid://cgh4kwy6ycxus"
+
+[sub_resource type="Resource" id="Resource_qarj1"]
+script = ExtResource("2_nwtf0")
+level_name = "logo"
+scene = ExtResource("8_gfyrf")
+metadata/_custom_type_script = "uid://cgh4kwy6ycxus"
+
+[node name="GameController" type="Node" unique_id=2043296454]
+process_mode = 3
+script = ExtResource("1_2ealq")
+scenes = Array[ExtResource("2_nwtf0")]([ExtResource("4_l7jgy"), SubResource("Resource_ym5ah"), ExtResource("3_7bcgs"), SubResource("Resource_pbqdo"), SubResource("Resource_gfyrf"), SubResource("Resource_qarj1")])
+start_scene = "tutorial"

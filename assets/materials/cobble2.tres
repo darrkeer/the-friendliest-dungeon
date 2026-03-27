@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dcg26h5uxoqyj"]
+
+[ext_resource type="Texture2D" uid="uid://b4nwqu0je6xij" path="res://assets/sprites/textures/cobble2_texture.png" id="1_doba6"]
+
+[resource]
+shading_mode = 2
+albedo_texture = ExtResource("1_doba6")
+uv1_triplanar = true
+texture_filter = 0

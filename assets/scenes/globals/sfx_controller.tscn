@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dkwehyhvfoyfy"]
+
+[ext_resource type="Script" uid="uid://ds1isaj6k5n5" path="res://assets/scripts/sounds/sfx_controller.gd" id="1_amaei"]
+[ext_resource type="PackedScene" uid="uid://bltjulmwae1n4" path="res://assets/scenes/sound_player.tscn" id="2_f6bs7"]
+[ext_resource type="AudioStream" uid="uid://dpbwpldsl27de" path="res://assets/sounds/walk.ogg" id="2_ivnh1"]
+[ext_resource type="AudioStream" uid="uid://chu10lb8slx6o" path="res://assets/sounds/fall.wav" id="3_wwelo"]
+[ext_resource type="AudioStream" uid="uid://dl3pvc7klelev" path="res://assets/sounds/jump.ogg" id="4_kkria"]
+[ext_resource type="AudioStream" uid="uid://d01owucpt8ai2" path="res://assets/sounds/chest.wav" id="5_30evd"]
+[ext_resource type="AudioStream" uid="uid://bb5rcxaiypxcd" path="res://assets/sounds/can.wav" id="6_431qv"]
+[ext_resource type="AudioStream" uid="uid://dhaclhdklj25s" path="res://assets/sounds/cauldron.wav" id="7_431qv"]
+[ext_resource type="AudioStream" uid="uid://b4qywyr8fjghu" path="res://assets/sounds/door-open.wav" id="8_em0u6"]
+[ext_resource type="AudioStream" uid="uid://cksnakoq1guyg" path="res://assets/sounds/door-close.wav" id="9_ruyf4"]
+[ext_resource type="AudioStream" uid="uid://ocupkqy2nuyk" path="res://assets/sounds/skeleton_walk.ogg" id="10_pwg3o"]
+[ext_resource type="AudioStream" uid="uid://clodrknvgkix4" path="res://assets/sounds/chips.wav" id="11_75opq"]
+[ext_resource type="AudioStream" uid="uid://x58ltu4qoql3" path="res://assets/sounds/skeleton_shock.ogg" id="12_75opq"]
+[ext_resource type="AudioStream" uid="uid://ctir6ingiaqlm" path="res://assets/sounds/damage.wav" id="13_xpve6"]
+[ext_resource type="AudioStream" uid="uid://be54apd65u70m" path="res://assets/sounds/pickup.wav" id="14_bybq3"]
+[ext_resource type="AudioStream" uid="uid://duc48bn040147" path="res://assets/sounds/potion.wav" id="15_3cla4"]
+[ext_resource type="AudioStream" uid="uid://c6f3sba2nxavm" path="res://assets/sounds/inventory_chips.ogg" id="16_nnmv0"]
+[ext_resource type="AudioStream" uid="uid://yv41d2i7ecka" path="res://assets/sounds/coin.ogg" id="17_03t27"]
+[ext_resource type="AudioStream" uid="uid://cr1q06ajggimd" path="res://assets/sounds/death.ogg" id="18_03t27"]
+[ext_resource type="AudioStream" uid="uid://bs04ue2pvnych" path="res://assets/sounds/sneak_walk.ogg" id="19_pmgpj"]
+
+[node name="SFXController" type="Node" unique_id=748578031]
+script = ExtResource("1_amaei")
+sounds = Dictionary[String, AudioStream]({
+"bottle": ExtResource("15_3cla4"),
+"cauldron": ExtResource("7_431qv"),
+"chest_open": ExtResource("5_30evd"),
+"chips": ExtResource("11_75opq"),
+"chips_hover": ExtResource("16_nnmv0"),
+"coin": ExtResource("17_03t27"),
+"damage": ExtResource("13_xpve6"),
+"death": ExtResource("18_03t27"),
+"door_close": ExtResource("9_ruyf4"),
+"door_open": ExtResource("8_em0u6"),
+"fall": ExtResource("3_wwelo"),
+"jump": ExtResource("4_kkria"),
+"pickup": ExtResource("14_bybq3"),
+"potion": ExtResource("15_3cla4"),
+"skeleton_shock": ExtResource("12_75opq"),
+"skeleton_walk": ExtResource("10_pwg3o"),
+"sneak_walk": ExtResource("19_pmgpj"),
+"vendmachine": ExtResource("6_431qv"),
+"walk": ExtResource("2_ivnh1")
+})
+sound_player_scene = ExtResource("2_f6bs7")

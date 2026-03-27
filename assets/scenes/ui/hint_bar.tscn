@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://l03d2wj81rjm"]
+
+[ext_resource type="Script" uid="uid://c8817rj03pp2w" path="res://assets/scripts/ui/hint_controller.gd" id="1_k8wxn"]
+[ext_resource type="Script" uid="uid://cn8imdaen8pkp" path="res://assets/scripts/ui/ui_flow_effect.gd" id="2_dii8c"]
+[ext_resource type="LabelSettings" uid="uid://bhfkbkt2avspd" path="res://assets/misc/bold.tres" id="3_ntcci"]
+[ext_resource type="LabelSettings" uid="uid://n4gegin815mh" path="res://assets/misc/normal.tres" id="4_lifo3"]
+[ext_resource type="LabelSettings" uid="uid://btte5b0i0syjt" path="res://assets/misc/little.tres" id="5_t5qdk"]
+
+[node name="HintBar" type="Control" unique_id=491090340 node_paths=PackedStringArray("name_label", "hint_label", "hint_add_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k8wxn")
+name_label = NodePath("Flow/MarginContainer/VBoxContainer/NameText")
+hint_label = NodePath("Flow/MarginContainer/VBoxContainer/HintBaseText")
+hint_add_label = NodePath("Flow/MarginContainer/VBoxContainer/HintAddText")
+
+[node name="Flow" type="Control" parent="." unique_id=1730057568]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_dii8c")
+repeat_time = 2.0
+flow_time = 2.0
+max_x = 5
+max_y = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Flow" unique_id=271737997]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -53.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Flow/MarginContainer" unique_id=196143808]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="NameText" type="Label" parent="Flow/MarginContainer/VBoxContainer" unique_id=1594712659]
+layout_mode = 2
+text = "object name"
+label_settings = ExtResource("3_ntcci")
+
+[node name="HintBaseText" type="Label" parent="Flow/MarginContainer/VBoxContainer" unique_id=945066836]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "normal  message"
+label_settings = ExtResource("4_lifo3")
+autowrap_mode = 3
+
+[node name="HintAddText" type="Label" parent="Flow/MarginContainer/VBoxContainer" unique_id=2002306720]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "asdsa"
+label_settings = ExtResource("5_t5qdk")
+autowrap_mode = 3

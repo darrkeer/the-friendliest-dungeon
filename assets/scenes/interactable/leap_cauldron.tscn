@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cjgf43vqifou4"]
+
+[ext_resource type="PackedScene" uid="uid://bv5huj6aqhsgw" path="res://assets/scenes/interactable/exchanger_base.tscn" id="1_ltmdn"]
+[ext_resource type="Resource" uid="uid://py4hvf83px5p" path="res://assets/resources/items/empty_bottle.tres" id="2_25ubd"]
+[ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="3_k5dxl"]
+[ext_resource type="Resource" uid="uid://ctnnkc82wkd43" path="res://assets/resources/items/leap_potion.tres" id="4_6sqy7"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="5_2o1vu"]
+[ext_resource type="PackedScene" uid="uid://bervk4gws3a4y" path="res://assets/models/green_cauldron.glb" id="6_8qfql"]
+
+[sub_resource type="Resource" id="Resource_p23nb"]
+script = ExtResource("5_2o1vu")
+hint_name = "Cauldron"
+hint_text = "press {interact} to fill the bottle"
+hint_additional_text = "???"
+show_time = 10.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[node name="LeapCauldron" unique_id=132471920 instance=ExtResource("1_ltmdn")]
+exchange_item = ExtResource("2_25ubd")
+items = Array[ExtResource("3_k5dxl")]([ExtResource("4_6sqy7")])
+exchange_sound_name = "cauldron"
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=568103354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 5.9604645e-08)
+
+[node name="Interactable" parent="." index="1" unique_id=510802579]
+hint = SubResource("Resource_p23nb")
+
+[node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(372079757) index="0" unique_id=1763834485 node_paths=PackedStringArray("animation_player")]
+animation_player = NodePath("../../green_cauldron/AnimationPlayer")
+animation_name = "idle"
+
+[node name="Exchange" parent="StateMachine" parent_id_path=PackedInt32Array(372079757) index="1" unique_id=1662187298 node_paths=PackedStringArray("animation_player")]
+animation_player = NodePath("../../green_cauldron/AnimationPlayer")
+animation_name = "idle"
+
+[node name="NotEnough" parent="StateMachine" parent_id_path=PackedInt32Array(372079757) index="2" unique_id=557051637 node_paths=PackedStringArray("animation_player")]
+animation_player = NodePath("../../green_cauldron/AnimationPlayer")
+animation_name = "idle"
+
+[node name="SpawnPoint" parent="." index="3" unique_id=483118221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, 0)
+
+[node name="green_cauldron" parent="." index="4" unique_id=1409737286 instance=ExtResource("6_8qfql")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[editable path="Interactable"]
+[editable path="green_cauldron"]

@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bhfkbkt2avspd"]
+
+[ext_resource type="FontFile" uid="uid://jrl67ela7vn7" path="res://assets/misc/fonts/The Chaosland.ttf" id="1_jaujv"]
+
+[resource]
+font = ExtResource("1_jaujv")
+font_size = 28
+font_color = Color(1, 1, 0.23529412, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b6fd03p8mpb18"]
+
+[ext_resource type="Script" uid="uid://bkfykdyuiir0r" path="res://assets/scripts/settings.gd" id="1_6w1av"]
+
+[node name="Settings" type="Node" unique_id=1728025870]
+script = ExtResource("1_6w1av")
+data = {
+"bgm_volume": 0.0,
+"camera_distance": 0.583,
+"invert_mouse_x": 0.0,
+"invert_mouse_y": 0.0,
+"mouse_sens": 0.286,
+"sfx_volume": 0.3
+}

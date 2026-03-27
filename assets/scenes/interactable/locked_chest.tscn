@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://drc67j6a0mn8"]
+
+[ext_resource type="PackedScene" uid="uid://bv5huj6aqhsgw" path="res://assets/scenes/interactable/exchanger_base.tscn" id="1_18dwb"]
+[ext_resource type="Resource" uid="uid://cnimriy4l7gla" path="res://assets/resources/items/key.tres" id="2_67s1e"]
+[ext_resource type="Script" uid="uid://d31s88jlvc5dg" path="res://assets/scripts/interactable/one_shot_exchanger.gd" id="2_p6xil"]
+[ext_resource type="PackedScene" uid="uid://b2427qm1n71uw" path="res://assets/models/chest.glb" id="3_p6xil"]
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="4_p6xil"]
+
+[sub_resource type="Resource" id="Resource_p6xil"]
+script = ExtResource("4_p6xil")
+hint_name = "Locked Chest"
+hint_text = "press {interact} to open it"
+hint_additional_text = "where is my key"
+show_time = 10.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[sub_resource type="Resource" id="Resource_f4r2e"]
+script = ExtResource("4_p6xil")
+hint_name = "Empty Chest"
+hint_text = "...hollow"
+show_time = 10.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[sub_resource type="Resource" id="Resource_thkim"]
+script = ExtResource("4_p6xil")
+hint_name = "Locked Chest"
+hint_text = "press {interact} to open it"
+hint_additional_text = "where is my key"
+show_time = 10.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[node name="LockedChest" unique_id=132471920 node_paths=PackedStringArray("interactable") instance=ExtResource("1_18dwb")]
+script = ExtResource("2_p6xil")
+first_hint = SubResource("Resource_p6xil")
+second_hint = SubResource("Resource_f4r2e")
+interactable = NodePath("Interactable")
+exchange_item = ExtResource("2_67s1e")
+exchange_sound_name = "chest_open"
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=568103354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -5.9604645e-08)
+
+[node name="Interactable" parent="." index="1" unique_id=510802579]
+hint = SubResource("Resource_thkim")
+
+[node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(372079757) index="0" unique_id=1763834485 node_paths=PackedStringArray("animation_player")]
+animation_player = NodePath("../../chest/AnimationPlayer")
+animation_name = "idle"
+
+[node name="Exchange" parent="StateMachine" parent_id_path=PackedInt32Array(372079757) index="1" unique_id=1662187298 node_paths=PackedStringArray("animation_player")]
+animation_player = NodePath("../../chest/AnimationPlayer")
+animation_name = "open"
+
+[node name="NotEnough" parent="StateMachine" parent_id_path=PackedInt32Array(372079757) index="2" unique_id=557051637 node_paths=PackedStringArray("animation_player")]
+animation_player = NodePath("../../chest/AnimationPlayer")
+animation_name = "idle"
+
+[node name="SpawnPoint" parent="." index="3" unique_id=483118221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.79999995, 0)
+
+[node name="chest" parent="." index="4" unique_id=1143876862 instance=ExtResource("3_p6xil")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[editable path="Interactable"]
+[editable path="chest"]

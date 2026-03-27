@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://duyyn30lk27gs"]
+
+[ext_resource type="Script" uid="uid://rdmun7lq8l6n" path="res://assets/scripts/ui/ui_contoller.gd" id="1_pwtnk"]
+[ext_resource type="PackedScene" uid="uid://dwvjtimuua3l6" path="res://assets/scenes/ui/hp_bar.tscn" id="2_6n0yi"]
+[ext_resource type="PackedScene" uid="uid://brtg6s0uiptiv" path="res://assets/scenes/ui/hotbar.tscn" id="3_tqedk"]
+[ext_resource type="Shader" uid="uid://gtnkhoiguxag" path="res://assets/shaders/scene_transition.gdshader" id="4_166pj"]
+[ext_resource type="PackedScene" uid="uid://l03d2wj81rjm" path="res://assets/scenes/ui/hint_bar.tscn" id="4_tqedk"]
+[ext_resource type="PackedScene" uid="uid://p21mw87bhook" path="res://assets/scenes/ui/pause_menu.tscn" id="5_6fkbt"]
+[ext_resource type="Script" uid="uid://cx4g3f5t74686" path="res://assets/scripts/ui/scene_changer.gd" id="5_6n0yi"]
+[ext_resource type="Script" uid="uid://cn8imdaen8pkp" path="res://assets/scripts/ui/ui_flow_effect.gd" id="5_d1hxs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6n0yi"]
+shader = ExtResource("4_166pj")
+shader_parameter/size = 0.0
+
+[node name="UI" type="Control" unique_id=907969530 node_paths=PackedStringArray("scene_changer", "hotbar", "hints", "hpbar")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pwtnk")
+scene_changer = NodePath("SceneChanger")
+hotbar = NodePath("HotBar")
+hints = NodePath("HintBar")
+hpbar = NodePath("HPBar")
+
+[node name="HPBar" parent="." unique_id=812152129 instance=ExtResource("2_6n0yi")]
+layout_mode = 1
+
+[node name="HotBar" parent="." unique_id=1460064413 instance=ExtResource("3_tqedk")]
+layout_mode = 1
+
+[node name="HintBar" parent="." unique_id=491090340 instance=ExtResource("4_tqedk")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=68946058]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_d1hxs")
+repeat_time = 2.0
+flow_time = 2.0
+max_x = 2
+max_y = 2
+
+[node name="PauseMenu" parent="Control" unique_id=1743195751 instance=ExtResource("5_6fkbt")]
+layout_mode = 1
+
+[node name="SceneChanger" type="ColorRect" parent="." unique_id=1877762818]
+process_mode = 3
+material = SubResource("ShaderMaterial_6n0yi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("5_6n0yi")
