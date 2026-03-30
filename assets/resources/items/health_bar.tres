@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="HealthBar" format=3 uid="uid://dlshtkfiy8c6a"]
+
+[ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="1_3tdmn"]
+[ext_resource type="Script" uid="uid://bak1k8co3qx4k" path="res://assets/scripts/item/hp_bar.gd" id="1_g8vec"]
+[ext_resource type="PackedScene" uid="uid://5ub1tycspjng" path="res://assets/scenes/items/health_bar.tscn" id="1_l6i3i"]
+[ext_resource type="Texture2D" uid="uid://cb7efsoqspj0w" path="res://assets/sprites/items/health_bar_render.png" id="4_qttyg"]
+
+[sub_resource type="Resource" id="Resource_3tdmn"]
+script = ExtResource("1_3tdmn")
+hint_name = "Health Bar"
+hint_text = "press {interact} to eat it"
+hint_additional_text = "restore your health bar"
+show_time = 20.0
+metadata/_custom_type_script = "uid://wdcgf8aw7a5q"
+
+[resource]
+script = ExtResource("1_g8vec")
+item_name = "health_bar"
+scene = ExtResource("1_l6i3i")
+sprite = ExtResource("4_qttyg")
+hint = SubResource("Resource_3tdmn")
+hover_sound_name = "chips_hover"
+metadata/_custom_type_script = "uid://bak1k8co3qx4k"

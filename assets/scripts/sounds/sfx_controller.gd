@@ -37,5 +37,4 @@ func play_sound(sound_name : String, pos : Vector3) -> void:
 		push_error("sfx polyphony overload")
 		return
 	
-	print("playing sound '%s'" % sound_name)
 	player.play_sound(stream, pos, sound_name)

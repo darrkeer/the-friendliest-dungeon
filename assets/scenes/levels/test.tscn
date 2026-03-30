@@ -20,6 +20,9 @@
 [ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="12_rucus"]
 [ext_resource type="Resource" uid="uid://b4o6x44aque61" path="res://assets/resources/items/coin.tres" id="13_k3inc"]
 [ext_resource type="PackedScene" uid="uid://bwkg1w2dhmkwa" path="res://assets/scenes/interactable/chest.tscn" id="14_k3inc"]
+[ext_resource type="PackedScene" uid="uid://5ub1tycspjng" path="res://assets/scenes/items/health_bar.tscn" id="21_y0m8w"]
+[ext_resource type="PackedScene" uid="uid://ctkxhlb6umqb6" path="res://assets/scenes/skeleton.tscn" id="22_bnuim"]
+[ext_resource type="PackedScene" uid="uid://c5wk0pgr44pyo" path="res://assets/scenes/walk_node.tscn" id="23_o83ut"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_np4up"]
 vertices = PackedVector3Array(13.25, 1, 1, 14.5, 1, 1, 14.5, 1, 0, 13.25, 1, 0, 12.75, 1, -0.5, 12.75, 1, -8.25, -3.75, 1, -14.75, -3.75, 1, 9.75, 12.75, 1, 1.5, 13.25, 1, -8.75, 14.5, 1, -8.75, 14.5, 1, -10, 13.25, 1, -10, 12.75, 1, -10.5, 12.75, 1, -14.75, 14.5, 1, 9.75, 13.25, 1, 7.25, 12.75, 1, 6.75, 14.5, 1, 7.25, 14.25, 5.5, -14.75, 14.25, 5.5, -11.75, 15, 5.5, -11.75, 15, 5.5, -14.75, 15.75, 1, 0, 16, 1, 1, 16.5, 1, -0.75, 21.75, 1, 9.75, 21.75, 1, -14.75, 16.5, 1, -8.25, 16.5, 1, 1.5, 15.75, 1, -10, 16, 1, -8.75, 16.5, 1, -14.75, 16.5, 1, -10.75, 16.5, 1, 6.5, 15.75, 1, 7.25, 14.25, 5.5, -7.25, 14.25, 5.5, -1.75, 15, 5.5, -1.75, 15, 5.5, -7.25, 14.25, 5.5, 2.5, 14.25, 5.5, 5.5, 15, 5.5, 5.5, 15, 5.5, 2.5)
@@ -132,3 +135,22 @@ items = Array[ExtResource("12_rucus")]([ExtResource("13_k3inc")])
 
 [node name="LockedChest" parent="." unique_id=1182493147 instance=ExtResource("11_ouq8d")]
 transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, 1.0502526, 1, -4.9497476)
+
+[node name="HealthBar" parent="." unique_id=888518630 instance=ExtResource("21_y0m8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 6)
+
+[node name="HealthBar2" parent="." unique_id=328795263 instance=ExtResource("21_y0m8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, -2)
+
+[node name="HealthBar3" parent="." unique_id=751593706 instance=ExtResource("21_y0m8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 8)
+
+[node name="Skeleton" parent="." unique_id=987335548 node_paths=PackedStringArray("points") instance=ExtResource("22_bnuim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 8)
+points = [NodePath("../WalkNode"), NodePath("../WalkNode2")]
+
+[node name="WalkNode" parent="." unique_id=1231401299 instance=ExtResource("23_o83ut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7)
+
+[node name="WalkNode2" parent="." unique_id=861500889 instance=ExtResource("23_o83ut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, 7)

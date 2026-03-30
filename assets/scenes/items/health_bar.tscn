@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://5ub1tycspjng"]
+
+[ext_resource type="PackedScene" uid="uid://dfrq04ngdlv4b" path="res://assets/scenes/base_item.tscn" id="1_6e1jx"]
+[ext_resource type="PackedScene" uid="uid://c5n20kohx0qjl" path="res://assets/models/hp bar.glb" id="2_fgv3o"]
+
+[node name="HealthBar" unique_id=526094752 instance=ExtResource("1_6e1jx")]
+item_name = "health_bar"
+
+[node name="hp bar" parent="HolderHolder/Holder" parent_id_path=PackedInt32Array(1025611576) index="0" unique_id=1797015796 instance=ExtResource("2_fgv3o")]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.7071067, -0.70710677, 0, 0.7071067, 0.70710677, 0, 0, 0)

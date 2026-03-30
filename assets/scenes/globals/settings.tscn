@@ -5,7 +5,7 @@
 [node name="Settings" type="Node" unique_id=1728025870]
 script = ExtResource("1_6w1av")
 data = {
-"bgm_volume": 0.0,
+"bgm_volume": 0.5,
 "camera_distance": 0.583,
 "invert_mouse_x": 0.0,
 "invert_mouse_y": 0.0,

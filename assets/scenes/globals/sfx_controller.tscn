@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://yv41d2i7ecka" path="res://assets/sounds/coin.ogg" id="17_03t27"]
 [ext_resource type="AudioStream" uid="uid://cr1q06ajggimd" path="res://assets/sounds/death.ogg" id="18_03t27"]
 [ext_resource type="AudioStream" uid="uid://bs04ue2pvnych" path="res://assets/sounds/sneak_walk.ogg" id="19_pmgpj"]
+[ext_resource type="AudioStream" uid="uid://1uxq7o6fs8iw" path="res://assets/sounds/skeleton_hmm.ogg" id="20_d2jkm"]
 
 [node name="SFXController" type="Node" unique_id=748578031]
 script = ExtResource("1_amaei")
@@ -38,6 +39,7 @@ sounds = Dictionary[String, AudioStream]({
 "jump": ExtResource("4_kkria"),
 "pickup": ExtResource("14_bybq3"),
 "potion": ExtResource("15_3cla4"),
+"skeleton_hmm": ExtResource("20_d2jkm"),
 "skeleton_shock": ExtResource("12_75opq"),
 "skeleton_walk": ExtResource("10_pwg3o"),
 "sneak_walk": ExtResource("19_pmgpj"),

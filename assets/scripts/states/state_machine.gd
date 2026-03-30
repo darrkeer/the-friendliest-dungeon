@@ -14,7 +14,7 @@ func change_state(state_name : String, options := {}) -> void:
 		push_error("Unknown state: '%s'" % state_name)
 	if current_state:
 		states[current_state].exit()
-	#print(get_parent().name, " changed state to ", state_name)
+	print(get_parent().name, " changed state to ", state_name)
 	states[state_name].enter(options)
 	current_state = state_name
 

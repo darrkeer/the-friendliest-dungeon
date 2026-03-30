@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://s3ocerksvgd7" path="res://assets/scenes/hint_box.tscn" id="22_c2jhc"]
 [ext_resource type="Script" uid="uid://wdcgf8aw7a5q" path="res://assets/scripts/ui/hint.gd" id="23_dps8k"]
 [ext_resource type="PackedScene" uid="uid://bwkg1w2dhmkwa" path="res://assets/scenes/interactable/chest.tscn" id="24_8de6o"]
+[ext_resource type="Resource" uid="uid://dlshtkfiy8c6a" path="res://assets/resources/items/health_bar.tres" id="24_kke6u"]
 [ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="25_nhci5"]
 [ext_resource type="Resource" uid="uid://c7jd5lea31xoj" path="res://assets/resources/items/chips.tres" id="26_2kpbf"]
 [ext_resource type="PackedScene" uid="uid://ctkxhlb6umqb6" path="res://assets/scenes/skeleton.tscn" id="27_2kpbf"]
@@ -9753,7 +9754,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7, 10.9, -5.1)
 
 [node name="Chest" parent="NavigationRegion3D/StaticObjectsRoom2" unique_id=411071545 instance=ExtResource("24_8de6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.5, 8, -41.7)
-items = Array[ExtResource("25_nhci5")]([ExtResource("20_qcetw")])
+items = Array[ExtResource("25_nhci5")]([ExtResource("20_qcetw"), ExtResource("24_kke6u")])
 
 [node name="StaticObjectsRoom3" type="Node" parent="NavigationRegion3D" unique_id=1339089711]
 
@@ -9799,7 +9800,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -50.
 
 [node name="Chest2" parent="NavigationRegion3D/StaticObjectsRoom7" unique_id=141995933 instance=ExtResource("24_8de6o")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -55, 10.8, 132)
-items = Array[ExtResource("25_nhci5")]([ExtResource("26_2kpbf"), ExtResource("30_5kq2l")])
+items = Array[ExtResource("25_nhci5")]([ExtResource("30_5kq2l"), ExtResource("24_kke6u")])
 
 [node name="LevelDoor" parent="NavigationRegion3D/StaticObjectsRoom7" unique_id=952016107 instance=ExtResource("19_qcetw")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -50.6, 29.4, 117.3)

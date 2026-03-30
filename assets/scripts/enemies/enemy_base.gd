@@ -67,14 +67,13 @@ func angle_to_player() -> float:
 	return rad_to_deg((-global_basis.z).angle_to(vec))
 
 func can_see_player() -> bool:
-	return false
 	return	not GameController.player.is_dead() \
 			and !GameController.player.state_machine.get_current_state().is_sneaky \
 			and angle_to_player() < VIEW_ANGLE \
-			and distance_to_player() < VIEW_DISTANCE
+			and distance_to_player() < VIEW_DISTANCE \
+			and raycast_to_player()
 
 func can_hear_player() -> bool:
-	return false
 	return 	not GameController.player.is_dead() \
 			and distance_to_player() < HEAR_DISTANCE \
 			and GameController.player.state_machine.get_current_state().is_loud

@@ -4,16 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://ceg3ov4hsfxao" path="res://assets/models/wizard.glb" id="1_rwm0n"]
 [ext_resource type="PackedScene" uid="uid://ctibrrnpxl4nq" path="res://assets/models/barell.glb" id="3_1dmvh"]
 [ext_resource type="PackedScene" uid="uid://dwneaxg32sbuf" path="res://assets/scenes/state_machine.tscn" id="4_8sknh"]
+[ext_resource type="Script" uid="uid://g4r51c00teuh" path="res://assets/scripts/rotate_to_velocity.gd" id="4_jukhh"]
 [ext_resource type="Script" uid="uid://di0kw2r4pun8l" path="res://assets/scripts/player/player_idle.gd" id="5_0gfpk"]
 [ext_resource type="Script" uid="uid://br4l5wq3ri75d" path="res://assets/scripts/player/player_run.gd" id="5_0hrit"]
 [ext_resource type="Script" uid="uid://pkn6k6n8vhtm" path="res://assets/scripts/player/player_jump.gd" id="6_0hrit"]
 [ext_resource type="Script" uid="uid://bsd7obphp7o7l" path="res://assets/scripts/player/player_fall.gd" id="7_o5c66"]
 [ext_resource type="Script" uid="uid://swkei1c5twll" path="res://assets/scripts/player/spring_arm_camera.gd" id="9_60g6h"]
-[ext_resource type="Script" uid="uid://d0ur1oib3xk3v" path="res://assets/scripts/player/player_hit.gd" id="9_hrrj1"]
+[ext_resource type="Script" uid="uid://d0ur1oib3xk3v" path="res://assets/scripts/player/player_locked.gd" id="9_hrrj1"]
 [ext_resource type="Script" uid="uid://dftbmo3rqu672" path="res://assets/scripts/player/player_sneak.gd" id="9_tc801"]
 [ext_resource type="Script" uid="uid://c3eh116ow88oe" path="res://assets/scripts/player/player_death.gd" id="10_hrrj1"]
 [ext_resource type="Script" uid="uid://bm38vjb5ua20o" path="res://assets/scripts/player/player_throw.gd" id="11_00pic"]
 [ext_resource type="Script" uid="uid://csmwyx23ndkp2" path="res://assets/scripts/player/inventory.gd" id="12_c6vv5"]
+[ext_resource type="Script" uid="uid://bgvm8bnfpglnx" path="res://assets/scripts/player/player_hit.gd" id="12_gdn7j"]
 [ext_resource type="Script" uid="uid://4lkh6if2d3rl" path="res://assets/scripts/player/player_barrel_idle.gd" id="13_cd4ww"]
 [ext_resource type="Script" uid="uid://hymcpei7u2gf" path="res://assets/scripts/item/item_resource.gd" id="13_nh07x"]
 [ext_resource type="Script" uid="uid://dr6eoiav6fnl1" path="res://assets/scripts/player/player_barrel_run.gd" id="14_84enu"]
@@ -21,12 +23,14 @@
 [ext_resource type="Resource" uid="uid://c7jd5lea31xoj" path="res://assets/resources/items/chips.tres" id="15_0bskb"]
 [ext_resource type="Script" uid="uid://cksookb8crsiw" path="res://assets/scripts/player/player_barrel_fall.gd" id="15_cd4ww"]
 [ext_resource type="Resource" uid="uid://bc8yaxevncxjk" path="res://assets/resources/hints/barrel_hint.tres" id="15_wf17w"]
+[ext_resource type="Script" uid="uid://o7x2r8ph3g7o" path="res://assets/scripts/player/player_non_control.gd" id="20_6luef"]
 [ext_resource type="Resource" uid="uid://b4o6x44aque61" path="res://assets/resources/items/coin.tres" id="22_0e2pd"]
 [ext_resource type="Resource" uid="uid://cnimriy4l7gla" path="res://assets/resources/items/key.tres" id="23_ay2jx"]
 [ext_resource type="Resource" uid="uid://ctnnkc82wkd43" path="res://assets/resources/items/leap_potion.tres" id="24_jukhh"]
 [ext_resource type="Resource" uid="uid://yhywigpgdp2k" path="res://assets/resources/items/quiet_potion.tres" id="25_gdn7j"]
 [ext_resource type="Resource" uid="uid://dnldojqxksrt" path="res://assets/resources/items/speed_potion.tres" id="26_6luef"]
 [ext_resource type="Resource" uid="uid://py4hvf83px5p" path="res://assets/resources/items/empty_bottle.tres" id="27_ay2jx"]
+[ext_resource type="Resource" uid="uid://dlshtkfiy8c6a" path="res://assets/resources/items/health_bar.tres" id="31_gmant"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s027a"]
 height = 2.5
@@ -95,20 +99,20 @@ inventory = NodePath("../Inventory")
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Player/wizard/Armature" parent_id_path=PackedInt32Array(983046130, 439955486) index="0" unique_id=408156494]
-bones/0/position = Vector3(-7.115204e-15, -0.8316291, -0.088057235)
-bones/0/rotation = Quaternion(-0.19234285, 1.169834e-07, -2.2929061e-08, 0.9813278)
-bones/0/scale = Vector3(1, 0.78812057, 0.968006)
-bones/1/rotation = Quaternion(-0.1203241, -1.26565425e-14, -2.868751e-08, 0.99273473)
+bones/0/position = Vector3(-9.77631e-18, -1.2506526, -0.08805716)
+bones/0/rotation = Quaternion(0.11915653, 1.1836001e-07, 1.4204565e-08, 0.99287546)
+bones/0/scale = Vector3(0.3691182, 0.3691182, 0.36911827)
+bones/1/rotation = Quaternion(-0.19060557, -2.4818131e-14, -4.5443915e-08, 0.98166674)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.2032396, 1.7319477e-14, 4.8456112e-08, 0.9791291)
-bones/3/rotation = Quaternion(0.30944672, 1.4654944e-14, 7.377785e-08, 0.95091677)
-bones/4/rotation = Quaternion(0.19144513, 1.1700438e-07, 6.846613e-08, 0.98150337)
-bones/5/rotation = Quaternion(0.5055514, -1.02853456e-07, 1.807993e-07, 0.8627966)
-bones/6/rotation = Quaternion(0.102741584, 1.9539925e-14, 2.4495495e-08, 0.9947081)
-bones/7/rotation = Quaternion(0.77867496, -0.16994144, 0.14967854, -0.5851338)
-bones/8/rotation = Quaternion(-0.121226564, 0.0011223439, -0.055576816, 0.9910672)
-bones/9/rotation = Quaternion(0.9738987, 0.049443156, -0.2209958, -0.015410043)
-bones/10/rotation = Quaternion(-0.45419818, -0.035944883, 0.21146901, 0.8646923)
+bones/2/rotation = Quaternion(0.112769276, 6.9681915e-15, 2.68863e-08, 0.99362123)
+bones/3/rotation = Quaternion(0.088067435, -8.5164555e-15, 2.099691e-08, 0.9961146)
+bones/4/rotation = Quaternion(0.19703473, 1.16872414e-07, 7.046512e-08, 0.98039657)
+bones/5/rotation = Quaternion(0.23058458, -1.15997e-07, 8.246347e-08, 0.9730524)
+bones/6/rotation = Quaternion(0.21210255, 2.376187e-14, 5.056917e-08, 0.9772474)
+bones/7/rotation = Quaternion(0.97214484, -0.03209639, 0.22417296, 0.06042098)
+bones/8/rotation = Quaternion(-0.11047602, 2.6630161e-05, -0.050546225, 0.99259263)
+bones/9/rotation = Quaternion(0.97214484, 0.03209638, -0.224173, 0.06042098)
+bones/10/rotation = Quaternion(-0.1104759, -2.6605037e-05, 0.050546203, 0.99259263)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1543712057]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
@@ -121,6 +125,15 @@ visible = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/barell" unique_id=1801011866]
 libraries/ = SubResource("AnimationLibrary_cd4ww")
 autoplay = &"barrel_idle"
+
+[node name="Rotator" type="Node" parent="Player" unique_id=1682304503 node_paths=PackedStringArray("body", "rotate_timer")]
+script = ExtResource("4_jukhh")
+body = NodePath("..")
+rotate_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Player/Rotator" unique_id=1654591360]
+wait_time = 0.1
+autostart = true
 
 [node name="StateMachine" parent="." unique_id=372079757 instance=ExtResource("4_8sknh")]
 initial_state = "fall"
@@ -188,17 +201,20 @@ state_name = "sneak"
 wait_time = 0.9
 autostart = true
 
-[node name="Hit" type="Node" parent="StateMachine" unique_id=1310387575 node_paths=PackedStringArray("player", "end_timer", "animation_player")]
+[node name="Locked" type="Node" parent="StateMachine" unique_id=2038234953 node_paths=PackedStringArray("player", "animation_player")]
 script = ExtResource("9_hrrj1")
 player = NodePath("../../Player")
-end_timer = NodePath("Timer")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "idle"
+state_name = "locked"
+
+[node name="Hit" type="Node" parent="StateMachine" unique_id=1310387575 node_paths=PackedStringArray("player", "animation_player")]
+script = ExtResource("12_gdn7j")
+player = NodePath("../../Player")
 animation_player = NodePath("../../Player/wizard/AnimationPlayer")
 animation_name = "idle"
 state_name = "hit"
 is_loud = true
-
-[node name="Timer" type="Timer" parent="StateMachine/Hit" unique_id=1342745918]
-one_shot = true
 
 [node name="Death" type="Node" parent="StateMachine" unique_id=1114675854 node_paths=PackedStringArray("player", "animation_player")]
 script = ExtResource("10_hrrj1")
@@ -251,6 +267,13 @@ state_name = "barrel_fall"
 is_loud = true
 is_sneaky = true
 
+[node name="NonControl" type="Node" parent="StateMachine" unique_id=1829336421 node_paths=PackedStringArray("player", "animation_player")]
+script = ExtResource("20_6luef")
+player = NodePath("../../Player")
+animation_player = NodePath("../../Player/wizard/AnimationPlayer")
+animation_name = "fall"
+state_name = "non_control"
+
 [node name="CameraPivot" type="Node3D" parent="." unique_id=386357582 node_paths=PackedStringArray("player", "arm")]
 script = ExtResource("9_60g6h")
 player = NodePath("../Player")
@@ -265,7 +288,7 @@ current = true
 
 [node name="Inventory" type="Node" parent="." unique_id=662349010]
 script = ExtResource("12_c6vv5")
-all_items = Array[ExtResource("13_nh07x")]([ExtResource("15_0bskb"), ExtResource("22_0e2pd"), ExtResource("23_ay2jx"), ExtResource("24_jukhh"), ExtResource("25_gdn7j"), ExtResource("26_6luef"), ExtResource("27_ay2jx")])
+all_items = Array[ExtResource("13_nh07x")]([ExtResource("15_0bskb"), ExtResource("22_0e2pd"), ExtResource("23_ay2jx"), ExtResource("24_jukhh"), ExtResource("25_gdn7j"), ExtResource("26_6luef"), ExtResource("27_ay2jx"), ExtResource("31_gmant")])
 items = Array[ExtResource("13_nh07x")]([null, null, null, null])
 
 [editable path="Player/wizard"]

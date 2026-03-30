@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mpagg")
-heart = ExtResource("2_n5jxv")
+heart_scene = ExtResource("2_n5jxv")
 heart_container = NodePath("Shake/MarginContainer/HeartContainer")
 
 [node name="Shake" type="Control" parent="." unique_id=1081718607]

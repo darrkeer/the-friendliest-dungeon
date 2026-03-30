@@ -16,7 +16,7 @@ func fixed_update(delta : float) -> void:
 		state_machine.change_state("idle")
 		return
 	
-	player.slide_and_rotate(player.move_speed * Player.IN_AIR_SPEED_MUL, delta)
+	player.move_and_rotate(player.move_speed * Player.IN_AIR_SPEED_MUL, delta)
 	
 	player.velocity += player.get_gravity() * delta
 	player.move_and_slide()

@@ -14,6 +14,10 @@ func fixed_update(_delta : float) -> void:
 	if InputController.is_interact_pressing():
 		GameController.player.inventory.use_item()
 	
+	if InputController.is_jump_pressing():
+		state_machine.change_state("jump")
+		return
+	
 	if InputController.move_dir != Vector2.ZERO and InputController.is_sneak_pressing():
 		state_machine.change_state("sneak")
 		return

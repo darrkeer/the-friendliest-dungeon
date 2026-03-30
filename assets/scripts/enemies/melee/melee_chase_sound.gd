@@ -15,6 +15,7 @@ func enter(_options := {}) -> void:
 	particles.emitting = true
 	last_player_pos = GameController.player.global_position
 	update_path_timer.start()
+	SFXController.play_sound("skeleton_hmm", base.global_position)
 
 func exit() -> void:
 	super()
@@ -29,7 +30,6 @@ func fixed_update(_delta : float) -> void:
 		return
 	
 	if base.can_hear_player():
-		print("hear")
 		last_player_pos = GameController.player.global_position
 	
 	if base.can_see_player():
@@ -37,7 +37,6 @@ func fixed_update(_delta : float) -> void:
 		return
 	
 	if base.agent.is_navigation_finished():
-		print("nav finished")
 		state_machine.change_state("patrol")
 		return 
 	

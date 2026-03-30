@@ -29,7 +29,8 @@ size = Vector3(0.8, 0.7, 4.3)
 
 [node name="Door" type="Node3D" unique_id=694974554]
 
-[node name="Interactable" parent="." unique_id=510802579 instance=ExtResource("1_epmvr")]
+[node name="Interactable" parent="." unique_id=510802579 groups=["doors"] instance=ExtResource("1_epmvr")]
+collision_layer = 10
 hint = SubResource("Resource_hpbyn")
 
 [node name="CollisionShape3D" parent="Interactable" index="0" unique_id=86648199]

@@ -5,11 +5,12 @@ extends StateWithAnimation
 
 func enter(_options := {}) -> void:
 	super()
-	GameController.player.state_machine.change_state("hit", {"origin": base.global_position})
+	GameController.player.state_machine.change_state("locked")
 	attack_timer.start()
 
 func exit() -> void:
 	super()
+	GameController.player.state_machine.change_state("hit", {"origin": base.global_position})
 	SFXController.play_sound("damage", base.global_position)
 
 func fixed_update(_delta : float) -> void:
